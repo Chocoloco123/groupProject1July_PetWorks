@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    //- link(rel='stylesheet' href='/stylesheets/reset.css')
+    div(id='navBarFlex')
+        img(src='/img/PetWorksLogo.png' width=100 height=100)
+        form(action='/questions' method='get')
+            button(type='submit' id='questionButton') Ask a Question
+            a(href='/questions')
+        div(id='homeLogoutFlex')
+            button(type='button' id='homeButton') Home
+                a(href='/')
+            a(href='/user/logout' id='logoutLink') Logout

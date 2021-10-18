@@ -25,3 +25,33 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+#navBarFlex {
+  display: flex;
+  justify-content: space-between;
+}
+
+#homeLogoutFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+#sideBarFlex{
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+}
+
+#welcomeBannerFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+#filterBarFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+#feedFlex{
+  display: flex;
+}
