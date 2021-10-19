@@ -10,6 +10,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const questionRouter = require('./routes/question')
+const categoryRouter = require('./routes/category')
 const app = express();
 
 // view engine setup
@@ -39,6 +40,7 @@ app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/questions', questionRouter)
+app.use('/categories', categoryRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
