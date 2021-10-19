@@ -32,10 +32,9 @@ router.post('/', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
     const answers = await db.Answer.findAll({
         where: {
             questionId
-        }
+        },
+        include: [db.User, db.Question, db.Comment]
     });
-
-    console.log(answers)
     
     res.render(`question`, {
         questionId,

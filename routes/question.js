@@ -35,7 +35,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
     const answers = await db.Answer.findAll({
         where: {
             questionId
-        }
+        },
+        include: [db.User, db.Question, db.Comment]
     });
 
     res.render('question', {
@@ -44,7 +45,7 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         csrfToken: req.csrfToken(),
         answers
     })
-    
+
 }));
 
 module.exports = router;
