@@ -6,12 +6,13 @@ const logger = require('morgan');
 const { restoreUser } = require('./auth');
 const { sequelize } = require('./db/models');
 const session = require('express-session');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require('connect-session-sequelize');(session.Store);
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
-const questionRouter = require('./routes/question')
-const answerRouter = require('./routes/answer')
-const categoryRouter = require('./routes/category')
+const questionRouter = require('./routes/question');
+const answerRouter = require('./routes/answer');
+const commentRouter = require('./routes/comment');
+const categoryRouter = require('./routes/category');
 const app = express();
 
 // view engine setup
@@ -20,7 +21,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(cookieParser('superSecret'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -40,9 +41,10 @@ store.sync();
 app.use(restoreUser);
 app.use('/', indexRouter);
 app.use('/user', userRouter);
-app.use('/questions', questionRouter)
-app.use('/answers', answerRouter)
-app.use('/categories', categoryRouter)
+app.use('/questions', questionRouter);
+app.use('/answers', answerRouter);
+app.use('/comments', commentRouter);
+app.use('/categories', categoryRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

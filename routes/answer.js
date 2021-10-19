@@ -33,7 +33,8 @@ router.post('/', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
         where: {
             questionId
         },
-        include: [db.User, db.Question, db.Comment]
+        include: [db.User, db.Question, db.Comment],
+        order: [['createdAt', 'DESC']]
     });
     
     res.render(`question`, {
