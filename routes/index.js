@@ -7,7 +7,9 @@ const router = express.Router();
 /* GET home page. */
 router.get('/', asyncHandler (async(req, res, next) => {
 
-  const questions = await db.Question.findAll();
+  const questions = await db.Question.findAll({
+    order: [['createdAt', 'DESC']]
+  });
 
   res.render('home', { 
     title: 'Home',
