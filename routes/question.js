@@ -23,5 +23,8 @@ router.post('/new', csrfProtection, requireAuth, asyncHandler(async (req, res) =
     res.redirect('/');
 }))
 
+router.get('/:id', csrfProtection, requireAuth, (req, res) => {
+    res.render('question', { csrfToken: req.csrfToken() })
+})
 
 module.exports = router;
