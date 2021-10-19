@@ -5,12 +5,20 @@ block content
     div #{question.User.username}
     div #{question.question}
     div 
-        form(action='/answers/new' method='get')
+        form(action='/answers/new' method='post')
+            input(type='hidden' value=questionId name='questionId')
+            input(type='hidden' name='_csrf' value=csrfToken)
             button(type='submit' id='addAnswerButton') Add Answer
+            
         div 
             a(href='/answers/edit') Edit 
             a(href='/answers/:id/delete') Delete
-    div Answers Feed 
+    if answers
+        for answer in answers
+            div 
+                p= answer.answer
+
+
     
             
 

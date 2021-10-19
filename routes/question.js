@@ -6,6 +6,8 @@ const db = require('../db/models');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 
+let questionId;
+
 router.get('/new', csrfProtection, requireAuth, (req, res) => {
     res.render('add-question', { csrfToken: req.csrfToken() })
 })
@@ -24,15 +26,26 @@ router.post('/new', csrfProtection, requireAuth, asyncHandler(async (req, res) =
 }))
 
 router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
-    const questionId = req.params.id;
+    questionId = req.params.id;
+
     const question = await db.Question.findByPk(questionId, {
-        include: 'User'
+        include: [db.User, { model: db.Answer, include: db.Comment }]
     });
+
+    const answers = await db.Answer.findAll({
+        where: {
+            questionId
+        }
+    });
+
     res.render('question', {
+        questionId,
         question,
-        csrfToken: req.csrfToken()
+        csrfToken: req.csrfToken(),
+        answers
     })
-    console.log(question)
+    
 }));
 
 module.exports = router;
+

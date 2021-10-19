@@ -7,7 +7,8 @@ block content
         +validationErrorSummary(errors)
         div Add an answer
         div Answer:
-        form(action='/answers/new' method='post')
+        form(action='/answers' method='post')
+            input(type='hidden' value=questionId name='questionId')
             input(type='hidden' name='_csrf' value=csrfToken)
             +field('Answer', 'answer', null, 'textarea')
 
