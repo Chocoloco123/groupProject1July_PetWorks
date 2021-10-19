@@ -6,4 +6,10 @@ const db = require('../db/models');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 
+router.get('/new', csrfProtection, (req, res) => {
+    res.render('add-answer', {
+        csrfToken: req.csrfToken()
+    })
+})
+
 module.exports = router;
