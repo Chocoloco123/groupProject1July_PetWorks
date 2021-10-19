@@ -26,32 +26,31 @@ h1 {
   font-size: 2rem;
 }
 
-#navBarFlex {
+#nav-bar {
   display: flex;
   justify-content: space-between;
 }
 
-#homeLogoutFlex{
+#home-logout {
   display: flex;
   justify-content: space-between;
 }
 
-#categoryBarFlex{
+#petFilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+#welcome-petFilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+#categories-bar {
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 }
 
-#welcomeBannerFlex{
-  display: flex;
-  justify-content: space-between;
-}
-
-#filterBarFlex{
-  display: flex;
-  justify-content: space-between;
-}
-
-#feedFlex{
+#categories-questionFeed {
   display: flex;
 }

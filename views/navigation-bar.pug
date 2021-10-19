@@ -1,12 +1,11 @@
 extends layout.pug
 
 block content
-    div(id='navBarFlex')
-        img(src='/img/PetWorksLogo.png' width=100 height=100)
+    div(id='nav-bar')
+        img(src='/images/PetWorksLogo.png' width=100 height=100)
         form(action='/questions/new' method='get')
             button(type='submit' id='addQuestionButton') Ask a Question
-            a(href='/questions')
-        div(id='homeLogoutFlex')
+        div(id='home-logout')
             form(action='/' method='get')
                 button(type='submit' id='homeButton') Home
             form(action='/user/logout' method='post')

@@ -1,9 +1,9 @@
-include navBar.pug
+include navigation-bar.pug
 
 block content
-    div(id='welcomeBannerFlex')
-        div(id='welcomeUser') Welcome User
-        include filterBar.pug
-    div(id='feedFlex')
-        include categoryBar.pug
-        include questionsFeed.pug
+    div(id='welcome-petFilter')
+        div(id='welcome') Welcome User
+        include petType.pug
+    div(id='categories-questionFeed')
+        include categories.pug
+        include question-feed.pug
