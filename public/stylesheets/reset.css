@@ -25,3 +25,32 @@ body, header, nav {
 h1 {
   font-size: 2rem;
 }
+
+#nav-bar {
+  display: flex;
+  justify-content: space-between;
+}
+
+#home-logout {
+  display: flex;
+  justify-content: space-between;
+}
+
+#petFilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+#welcome-petFilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+#categories-bar {
+  display: flex;
+  flex-direction: column;
+}
+
+#categories-questionFeed {
+  display: flex;
+}

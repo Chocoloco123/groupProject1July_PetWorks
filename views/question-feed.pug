@@ -1,0 +1,6 @@
+div(id='questionFeed')
+    each question in questions 
+        div(class='question')
+            a(href=`/questions/${question.id}`)= question.question
+            
+

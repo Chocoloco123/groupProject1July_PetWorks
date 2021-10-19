@@ -1,0 +1,9 @@
+div(id='nav-bar')
+    img(src='/images/PetWorksLogo.png' width=100 height=100)
+    form(action='/questions/new' method='get')
+        button(type='submit' id='addQuestionButton') Ask a Question
+    div(id='home-logout')
+        form(action='/' method='get')
+            button(type='submit' id='homeButton') Home
+        form(action='/user/logout' method='post')
+            button(type='submit' id='logoutButton') Log out

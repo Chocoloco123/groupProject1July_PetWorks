@@ -7,11 +7,6 @@ const db = require('../db/models');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
-
 router.get('/register', csrfProtection, (req, res) => {
   const user = db.User.build();
 
@@ -81,7 +76,7 @@ const userValidators = [
       }),
 ];
 
-router.post('/register', csrfProtection, asyncHandler (async(req, res) => {
+router.post('/register', csrfProtection, userValidators, asyncHandler (async(req, res) => {
   
   const { username, firstName, lastName, emailAddress, password } = req.body;
     const user = db.User.build({
@@ -127,7 +122,7 @@ const loginValidators = [
         .withMessage('Please provide a value for Password'),
 ];
 
-router.post('/login', csrfProtection, loginValidators,asyncHandler(async(req,res) => {
+router.post('/login', csrfProtection, loginValidators, asyncHandler (async(req,res) => {
         const {
         username,
         password,

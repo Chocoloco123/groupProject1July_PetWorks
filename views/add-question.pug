@@ -1,0 +1,30 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+    div(id='addQuestion-form')
+        +validationErrorSummary(errors)
+        div Ask a Question:
+        div Username asks
+        form(action='/questions/new' method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +field('Question', 'question', null, 'textarea')
+            
+            label(for='category') Choose Category:
+                select(name='category')
+                    option(value='activity') Activity
+                    option(value='nutrition') Nutrition
+                    option(value='socialization') Socialization
+                    option(value='training') Training
+                    option(value='veterinary') Veterinary
+                    option(value='miscellaneous') Misc. 
+            label(for='petType') Choose Pet Type:
+                select(name='petType')
+                    option(value='dog') Dog
+                    option(value='cat') Cat
+                    option(value='other') Other
+
+            div
+                button(type='submit') Submit
+                a(href='/') Cancel

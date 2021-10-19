@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+    include navigation-bar.pug
+    div(id='welcome-petFilter')
+        div(id='welcome') #{title}
+        include petType.pug
+    div(id='categories-questionFeed')
+        include categories.pug
+        include question-feed.pug
