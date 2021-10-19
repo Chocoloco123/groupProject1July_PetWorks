@@ -1,4 +1,17 @@
 extends layout.pug
 
 block content
+    include navigation-bar.pug
+    div #{question.User.username}
     div #{question.question}
+    div 
+        form(action='/answers/new' method='get')
+            button(type='submit' id='addAnswerButton') Add Answer
+        div 
+            a(href='/answers/edit') Edit 
+            a(href='/answers/:id/delete') Delete
+    div Answers Feed 
+    
+            
+
+        

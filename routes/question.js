@@ -25,11 +25,14 @@ router.post('/new', csrfProtection, requireAuth, asyncHandler(async (req, res) =
 
 router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
     const questionId = req.params.id;
-    const question = await db.Question.findByPk(questionId);
+    const question = await db.Question.findByPk(questionId, {
+        include: 'User'
+    });
     res.render('question', {
         question,
         csrfToken: req.csrfToken()
     })
+    console.log(question)
 }));
 
 module.exports = router;

@@ -1,0 +1,16 @@
+extends layout.pug
+
+include utils.pug
+
+block content
+    div(id='addAnswer-form')
+        +validationErrorSummary(errors)
+        div Add an answer
+        div Answer:
+        form(action='/answers/new' method='post')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +field('Answer', 'answer', null, 'textarea')
+
+            div
+                button(type='submit') Submit
+                a(href='/') Cancel
