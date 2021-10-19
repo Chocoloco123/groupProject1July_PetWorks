@@ -27,8 +27,16 @@ block content
                     div
                         div #{question.User.username}
                         form(action='/comments' method='post')
+                            input(type='hidden' name='_csrf' value=csrfToken)
+                            input(type='hidden' name='userId' value=answer.User.id)
+                            input(type='hidden' name='answerId' value=answer.id)
                             +field('', 'comment', null, null, 'Please submit comment...')
                             button(type="submit") Submit
+                        if comments 
+                            for comment in comments 
+                                div 
+                                    p= comment.comment 
+
     
             
         

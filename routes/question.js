@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const { requireAuth } = require('../auth');
 const { check, validationResult } = require('express-validator');
 const db = require('../db/models');
@@ -39,7 +39,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         include: [db.User, db.Question, db.Comment],
         order: [['createdAt', 'DESC']]
     });
-
+    // console.log(answers[0].User.id);
+    // console.log(answers[0].id);
     res.render('question', {
         questionId,
         question,

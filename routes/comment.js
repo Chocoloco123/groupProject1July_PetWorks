@@ -6,9 +6,22 @@ const db = require('../db/models');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 
-router.post('/', csrfProtection, asyncHandler(async(req, res) => {
-  // const { comment } = req.body;
-  // console.log(comment);
+router.post('/', csrfProtection, requireAuth, asyncHandler(async(req, res) => {
+  const { comment, userId, answerId } = req.body;
+  
+  const newComment = await db.Comment.create({
+    userId,
+    answerId,
+    comment
+  }) 
+
+  // res.render(`question`, {
+  //       questionId,
+  //       question,
+  //       csrfToken: req.csrfToken(),
+  //       answers
+  // });
+  
 }))
 
 module.exports = router;

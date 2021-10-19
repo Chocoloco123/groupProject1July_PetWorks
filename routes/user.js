@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const { loginUser, logoutUser } = require('../auth');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
