@@ -8,7 +8,8 @@ block content
     div #{question.question}
     div 
         form(action='/answers/new' method='post')
-            input(type='hidden' value=questionId name='questionId')
+            //- input(type='hidden' value=questionId name='questionId')
+            input(type='hidden' value=question.id name='questionId')
             input(type='hidden' name='_csrf' value=csrfToken)
             button(type='submit' id='addAnswerButton') Add Answer
             
@@ -28,14 +29,15 @@ block content
                         div #{question.User.username}
                         form(action='/comments' method='post')
                             input(type='hidden' name='_csrf' value=csrfToken)
-                            input(type='hidden' name='userId' value=answer.User.id)
-                            input(type='hidden' name='answerId' value=answer.id)
+                            input(type='hidden' value=answer.User.id name='userId')
+                            input(type='hidden' value=answer.id name='answerId')
+                            input(type='hidden' value=question.id name='questionId')
                             +field('', 'comment', null, null, 'Please submit comment...')
                             button(type="submit") Submit
-                        if comments 
-                            for comment in comments 
+                        if answer.Comments
+                            for comment in answer.Comments
                                 div 
-                                    p= comment.comment 
+                                    p= comment.comment
 
     
             

@@ -39,13 +39,20 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         include: [db.User, db.Question, db.Comment],
         order: [['createdAt', 'DESC']]
     });
-    // console.log(answers[0].User.id);
-    // console.log(answers[0].id);
+
+    console.log(answers[0].Comments)
+    
+    // const comments = await db.Comment.findAll({
+    //     where: {
+    //       answerId
+    //     },
+    //     order: [['createdAt', 'DESC']]
+    //   })
+
     res.render('question', {
-        questionId,
         question,
         csrfToken: req.csrfToken(),
-        answers
+        answers,
     })
 
 }));
