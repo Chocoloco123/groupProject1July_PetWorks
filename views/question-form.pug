@@ -1,26 +1,29 @@
 extends layout.pug
+
 include utils.pug
 
 block content
-    div(id='questionsFlex')
+    div(id='addQuestionFlex')
         +validationErrorSummary(errors)
-        form(action='/questions' method='post') Ask a Question:
+        div Ask a Question:
+        div Username asks
+        form(action='/questions' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            div Username asks
             +field('Question', 'question', null, 'textarea')
-            label(name='categories' for='categorySelect') Choose a Category:
-                select(name='categorySelect')
+            
+            label(for='category') Choose Category:
+                select(name='category')
                     option(value='health') Health
                     option(value='nutrition') Nutrition
                     option(value='activities') Activities
                     option(value='training') Training
                     option(value='social') Social
-            label(name='petTypes' for='petSelect') Choose a Pet Type:
-                select(name='petSelect')
+            label(for='petType') Choose Pet Type:
+                select(name='petType')
                     option(value='dog') Dog
                     option(value='cat') Cat
                     option(value='other') Other
 
-            div(class='py-4')
-                button(type='submit' class='btn btn-primary') Submit
-                a(href='/' class='btn btn-warning ml-2') Cancel
+            div
+                button(type='submit') Submit
+                a(href='/') Cancel
