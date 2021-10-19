@@ -40,15 +40,6 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         order: [['createdAt', 'DESC']]
     });
 
-    console.log(answers[0].Comments)
-    
-    // const comments = await db.Comment.findAll({
-    //     where: {
-    //       answerId
-    //     },
-    //     order: [['createdAt', 'DESC']]
-    //   })
-
     res.render('question', {
         question,
         csrfToken: req.csrfToken(),
