@@ -5,13 +5,13 @@ include utils.pug
 block content
     div(id='editComment-form')
         +validationErrorSummary(errors)
-        div Edit Comment:
-        div Comment:
+        div(id='editAComment') Edit Comment:
+        div(id='commentText') Comment:
         form(action=`/comments/${comment.id}/edit` method='post')
             //- input(type='hidden' value=questionId name='questionId')
             input(type='hidden' name='_csrf' value=csrfToken)
             +field('Comment', 'comment', comment.comment, 'textarea')
 
             div
-                button(type='submit') Submit
-                a(href='/') Cancel
+                button(type='submit' id='submitComment') Submit
+                a(href='/' id='cancelComment') Cancel

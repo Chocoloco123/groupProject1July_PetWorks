@@ -6,56 +6,50 @@ append head
   //- add page specific js
   script(src="/javascripts/index.js" type="module" defer)
 
-include utils.pug 
+include utils.pug
 
 block content
     include navigation-bar.pug
-    div #{question.User.username}:
-    div #{question.question}
-    div 
+    div(id='questionUsername') Asked by: #{question.User.username}
+    div(id='questionContent') #{question.question}
+    div(id='questionOptions')
+        if question.userId === userId
+            div(id='questionButton')
+                a(href=`/questions/${question.id}/edit` id='editQuestion') Edit
+                a(class='questionPage-delete-button' href=`/questions/${question.id}/pageDelete` id='deleteQuestion') Delete
         form(action='/answers/new' method='post')
             input(type='hidden' value=question.id name='questionId')
             input(type='hidden' name='_csrf' value=csrfToken)
             button(type='submit' id='addAnswerButton') Add Answer
-        if question.userId === userId  
-            div 
-                a(href=`/questions/${question.id}/edit`) Edit 
-                a(class=('questionPage-delete-button') href=`/questions/${question.id}/pageDelete`) Delete
     if answers
         for answer in answers
-            
+
             div
                 div #{answer.User.username}:
-                p= answer.answer
-                    div 
-                        button(type='button') Comment Open/Close
+                p(id='answerContent')= answer.answer
+                    div(id='answerOptions')
                         if answer.userId === userId
                             div
-                                a(href=`/answers/${answer.id}/edit`) Edit 
-                                a(class=('answer-delete-button') href=`/answers/${answer.id}/delete`) Delete
-                    
-                        form(action='/comments' method='post')
+                                a(href=`/answers/${answer.id}/edit` id='editAnswer') Edit
+                                a(class=('answer-delete-button') href=`/answers/${answer.id}/delete` id='deleteAnswer') Delete
+                        button(type='button' id='toggle') Comment Open/Close
+                    div
+                        form(action='/comments' method='post' class='target')
                             input(type='hidden' name='_csrf' value=csrfToken)
                             input(type='hidden' value=userId name='userId')
                             input(type='hidden' value=answer.id name='answerId')
                             input(type='hidden' value=question.id name='questionId')
-                            +field('', 'comment', null, null, 'Please submit comment...')
-                            button(type="submit") Submit
-                            if comments 
-                                for comment in comments 
+                            +field('', 'comment', null, null, 'Submit a comment...')
+                            button(type="submit" id='submitAnswer') Submit
+                            if comments
+                                for comment in comments
                                     if comment.answerId === answer.id
-                                        div 
-                                            for user in users 
-                                                if user.id === comment.userId 
+                                        div
+                                            for user in users
+                                                if user.id === comment.userId
                                                     div #{user.username}:
                                             p= comment.comment
                                             if comment.userId === userId
                                                 div
-                                                    a(href=`/comments/${comment.id}/edit`) Edit 
-                                                    a(class=('comment-delete-button') href=`/comments/${comment.id}/delete`) Delete
-
-                        
-
-    
-            
-        
+                                                    a(href=`/comments/${comment.id}/edit` id='editComment') Edit
+                                                    a(class='comment-delete-button' href=`/comments/${comment.id}/delete` id='deleteComment') Delete

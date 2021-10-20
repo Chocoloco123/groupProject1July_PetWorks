@@ -26,14 +26,17 @@ h1 {
   font-size: 2rem;
 }
 
-#nav-bar {
-  display: flex;
-  justify-content: space-between;
+select{
+  border-radius: 5px;
+  margin: 5px 10px 5px 10px;
 }
 
-#home-logout {
-  display: flex;
-  justify-content: space-between;
+button:hover{
+  box-shadow: 0px 0px 2px 2px lightgrey;
+}
+
+a:hover{
+  color: rgb(97, 177, 252);
 }
 
 #petFilter {
@@ -46,11 +49,278 @@ h1 {
   justify-content: space-between;
 }
 
+#fullScreen{
+  background-color: rgba(243, 243, 243, 0.788);
+}
+
+/* -------------------nav bar ----------------------------------- */
+#nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 2px 8px lightgrey;
+}
+
+#home-logout {
+  display: flex;
+  justify-content: space-between;
+}
+
+#puppy-pic{
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+}
+
+#petWorks{
+  height: 50px;
+  width: 100px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#addQuestionButton{
+  width: 100px;
+  height: 50px;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 20px;
+  border-radius: 15px;
+  margin: 5px;
+  background-color:rgb(97, 177, 252);
+  color: white;
+}
+
+#home-logout{
+  display: flex;
+  align-items: center;
+}
+
+#homeButton, #logoutButton, #loginButton, #registerButton{
+  font-family: "Gill Sans", sans-serif;
+  height: 30px;
+  width: 90px;
+  font-size: 20px;
+  border-radius: 20px;
+  margin: 3px;
+  background-color:rgb(97, 177, 252);
+  color: white;
+}
+
+#guestButton{
+  font-family: "Gill Sans", sans-serif;
+  height: 30px;
+  width: 160px;
+  font-size: 20px;
+  border-radius: 20px;
+  margin: 3px;
+  background-color: rgb(97, 177, 252);
+  color: white;
+}
+
+
+/* ----------- filter bar --------------------------------------- */
+
+#welcome{
+  font-family: "Gill Sans", sans-serif;
+  font-size: 15px;
+  margin: 18px 0px 12px 30px;
+}
+
+#petFilter{
+  display: flex;
+}
+
+.filter-btn{
+  border-radius: 5px;
+  height: 25px;
+  margin: 18px 30px 12px 30px;
+}
+
+
+/* ------------categories bar ----------------------------------- */
 #categories-bar {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  border-bottom: 2px solid grey;
+  padding: 5px;
+  width: 185px;
+  max-height: 225px;
+}
+
+#filterBy{
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.category{
+  font-family: "Gill Sans", sans-serif;
+  font-size: 20px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+/* ---------------- questions feed ----------------------------------- */
+#categories-questionFeed {
+  display: flex;
+}
+
+ #questionFeed{
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   margin-right: 20px;
+   margin-left: 20px;
+   align-items: center;
+   flex-direction: column;
+ }
+
+ .question{
+   /* border: 1px solid grey; */
+   box-shadow: 0px 0px 1px 1px lightgrey;
+   border-radius: 3px;
+   width: 98%;
+   margin: 5px;
+   padding: 5px;
+   background-color: white;
+ }
+
+ .question:hover{
+  background-color: rgba(243, 243, 243, 0.548);
+ }
+
+ .questionText{
+   font-family: fontfamily;
+   text-decoration: none;
+   font-weight: 600;
+ }
+
+ #editQuestion, .deleteQuestion{
+   margin: 10px;
+   text-decoration: none;
+ }
+
+
+ /* ------------- question page --------------------------------------------- */
+#questionUsername, #questionContent{
+  font-family: fontfamily;
+}
+
+#questionUsername{
+  margin: 20px 30px 0px;
+  font-size: 17px;
+}
+
+#questionContent{
+  font-weight: 600;
+  font-size: 25px;
+  border-bottom: 2px solid lightgrey;
+  margin: 10px;
+}
+
+#addAnswerButton{
+  width: 100px;
+  height: 25px;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 15px;
+  border-radius: 15px;
+  margin: 5px;
+  background-color: rgb(97, 177, 252);
+  color: white;
+}
+
+#questionOptions{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#answerContent{
+  font-size: 20px;
+  border-bottom: 2px solid lightgrey;
+  margin: 10px;
+}
+
+#answerOptions{
+  display:flex;
+  align-items: center;
+}
+
+#comment{
+ resize: none;
+ font-size: 15px;
+ width: 95%;
+ margin: 5px 10px 15px 10px;
+}
+
+#toggle{
+  margin: 10px;
+}
+
+/* .target{
+  display:none;
+} */
+
+
+/* -------edit, add question / edit, add answer / edit comment forms ---------- */
+#addQuestion-form, #editQuestion-form, #editComment-form{
+  /* display: flex; */
+  background-color: white;
+  height: 375px;
+  margin: 40px 100px 100px;
+  box-shadow: 0px 0px 5px 2px lightgrey;
+}
+
+#addAnswer-form{
+  background-color: white;
+  height: 300px;
+  margin: 40px 100px 100px;
+  box-shadow: 0px 0px 5px 2px lightgrey;
+}
+
+#askAQuestion, #editAQuestion, #addAnAnswer, #editAComment{
+  font-weight: 700px;
+  font-size: 20px;
+  padding: 10px 0px;
+  margin: 50px 20px 0px 20px;
+}
+
+#question, #answer{
+ resize: none;
+ font-size: 18px;
+ width: 95%;
+ height: 180px;
+ border: none;
+ margin: 5px 10px 5px 10px;
+ border-bottom: 1px solid lightgrey;
+ border-top: 1px solid lightgrey;
+ outline: none;
+}
+
+#userAsked, #answerText, #commentText{
+  font-size: 16px;
+  margin: 5px 10px 5px;
+}
+
+#chooseQuestions{
   display: flex;
   flex-direction: column;
 }
 
-#categories-questionFeed {
+#chooseCategory, #choosePetType{
+  margin: 0px 10px 5px;
+}
+
+#questionButtons, #answerButtons{
   display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  margin-right: 5px;
+}
+
+#submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{
+  margin: 0px 10px 0px;
+  text-decoration: none;
 }
