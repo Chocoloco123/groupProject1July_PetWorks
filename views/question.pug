@@ -1,5 +1,11 @@
 extends layout.pug
 
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
 include utils.pug 
 
 block content
@@ -15,7 +21,7 @@ block content
         if question.userId === userId  
             div 
                 a(href=`/questions/${question.id}/edit`) Edit 
-                a(href='/answers/:id/delete') Delete
+                a(class=('delete-button') href=`/questions/${question.id}/delete`) Delete
     if answers
         for answer in answers
             
@@ -27,7 +33,7 @@ block content
                         if answer.userId === userId
                             div
                                 a(href=`/answers/${answer.id}/edit`) Edit 
-                                a(href='/answers/:id/delete') Delete
+                                a(class=('delete-button') href=`/answers/${answer.id}/delete`) Delete
                     
                         form(action='/comments' method='post')
                             input(type='hidden' name='_csrf' value=csrfToken)
@@ -47,7 +53,7 @@ block content
                                             if comment.userId === userId
                                                 div
                                                     a(href=`/comments/${comment.id}/edit`) Edit 
-                                                    a(href='/answers/:id/delete') Delete
+                                                    a(class=('delete-button') href=`/comments/${comment.id}/delete`) Delete
 
 
                         //- if answer.Comments

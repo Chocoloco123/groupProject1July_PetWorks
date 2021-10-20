@@ -91,6 +91,38 @@ router.post('/:id/edit', csrfProtection, asyncHandler(async (req, res) => {
     res.redirect('/');
 }));
 
+router.post('/:id/delete', asyncHandler(async (req, res) => {
+    const { id, category } = req.body
+
+    let questions;
+    const deleteQuestion = await db.Question.findByPk(id)
+    currentUserId = req.session.auth.userId;
+
+    await deleteQuestion.destroy()
+
+    questions = await db.Question.findAll({
+                where: { category: category.toLowerCase() }
+            })
+
+    if (category === 'Home') {
+        questions = await db.Question.findAll({
+            order: [['createdAt', 'DESC']]
+        })
+    } 
+    else {
+        questions = await db.Question.findAll({
+            where: { category: category.toLowerCase() },
+            order: [['createdAt', 'DESC']]
+        })
+    }
+
+    res.json({
+        questions,
+        currentUserId
+    })
+
+    // res.redirect('/');
+}));
 
 module.exports = router;
 

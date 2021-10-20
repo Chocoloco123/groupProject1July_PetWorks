@@ -112,7 +112,7 @@ router.get('/miscellaneous', asyncHandler(async (req, res) => {
     });
 
     res.render('category', {
-        title: "Misc.",
+        title: "Miscellaneous",
         questions,
         userId
     })

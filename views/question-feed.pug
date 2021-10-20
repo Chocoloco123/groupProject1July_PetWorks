@@ -5,6 +5,7 @@ div(id='questionFeed')
         if question.userId === userId  
             div 
                 a(href=`/questions/${question.id}/edit`) Edit 
-                a(href='/answers/:id/delete') Delete
+                a(id=`question-delete-${question.id}` class=('delete-button') href=``) Delete
+                
             
 
