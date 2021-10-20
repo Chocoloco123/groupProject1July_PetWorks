@@ -8,77 +8,77 @@ const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 
 router.get('/register', csrfProtection, (req, res) => {
-  const user = db.User.build();
+    const user = db.User.build();
 
-  res.render('user-register', {
-    title: 'Register',
-    user,
-    csrfToken: req.csrfToken()
-  })
+    res.render('user-register', {
+        title: 'Register',
+        user,
+        csrfToken: req.csrfToken()
+    })
 })
 
 const userValidators = [
-  check('firstName')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for First Name')
-      .isLength({ max: 50 })
-      .withMessage('First Name must not be more than 50 characters long'),
-  check('lastName')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Last Name')
-      .isLength({ max: 50 })
-      .withMessage('Last Name must not be more than 50 characters long'),
-  check('emailAddress')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Email Address')
-      .isLength({ max: 255 })
-      .withMessage('Email Address must not be more than 255 characters long')
-      .isEmail()
-      .withMessage('Email Address is not a valid email')
-      .custom((value) => {
-          return db.User.findOne({ where: { emailAddress: value } })
-              .then((user) => {
-                  if (user) {
-                      return Promise.reject('The provided Email Address is already in use by another account');
-                  }
-              });
-      }),
-  check('username')
-    .exists({ checkFalsy: true })
-    .withMessage('Please provide a value for Username')
-    .isLength({ max: 50 })
-    .withMessage('Username must not be more than 50 characters long')
-    .custom((value) => {
-      return db.User.findOne({ where: { username: value } })
-          .then((user) => {
-              if (user) {
-                  return Promise.reject('The provided Username is already in use by another account');
-              }
-          });
-  }),
-  check('password')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Password')
-      .isLength({ max: 255 })
-      .withMessage('Password must not be more than 255 characters long')
-      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
-      .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'),
-  check('confirmPassword')
-      .exists({ checkFalsy: true })
-      .withMessage('Please provide a value for Confirm Password')
-      .isLength({ max: 255 })
-      .withMessage('Confirm Password must not be more than 255 characters long')
-      .custom((value, { req }) => {
-          if (value !== req.body.password) {
-              throw new Error('Confirm Password does not match Password');
-          }
-          return true;
-      }),
+    check('firstName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for First Name')
+        .isLength({ max: 50 })
+        .withMessage('First Name must not be more than 50 characters long'),
+    check('lastName')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for Last Name')
+        .isLength({ max: 50 })
+        .withMessage('Last Name must not be more than 50 characters long'),
+    check('emailAddress')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for Email Address')
+        .isLength({ max: 255 })
+        .withMessage('Email Address must not be more than 255 characters long')
+        .isEmail()
+        .withMessage('Email Address is not a valid email')
+        .custom((value) => {
+            return db.User.findOne({ where: { emailAddress: value } })
+                .then((user) => {
+                    if (user) {
+                        return Promise.reject('The provided Email Address is already in use by another account');
+                    }
+                });
+        }),
+    check('username')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for Username')
+        .isLength({ max: 50 })
+        .withMessage('Username must not be more than 50 characters long')
+        .custom((value) => {
+            return db.User.findOne({ where: { username: value } })
+                .then((user) => {
+                    if (user) {
+                        return Promise.reject('The provided Username is already in use by another account');
+                    }
+                });
+        }),
+    check('password')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for Password')
+        .isLength({ max: 255 })
+        .withMessage('Password must not be more than 255 characters long')
+        .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/, 'g')
+        .withMessage('Password must contain at least 1 lowercase letter, uppercase letter, number, and special character (i.e. "!@#$%^&*")'),
+    check('confirmPassword')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a value for Confirm Password')
+        .isLength({ max: 255 })
+        .withMessage('Confirm Password must not be more than 255 characters long')
+        .custom((value, { req }) => {
+            if (value !== req.body.password) {
+                throw new Error('Confirm Password does not match Password');
+            }
+            return true;
+        }),
 ];
 
-router.post('/register', csrfProtection, userValidators, asyncHandler (async(req, res) => {
+router.post('/register', csrfProtection, userValidators, asyncHandler(async (req, res) => {
 
-  const { username, firstName, lastName, emailAddress, password } = req.body;
+    const { username, firstName, lastName, emailAddress, password } = req.body;
     const user = db.User.build({
         username,
         firstName,
@@ -106,7 +106,7 @@ router.post('/register', csrfProtection, userValidators, asyncHandler (async(req
     }
 }));
 
-router.get('/login', csrfProtection, (req,res) => {
+router.get('/login', csrfProtection, (req, res) => {
     res.render('user-login', {
         title: 'Login',
         csrfToken: req.csrfToken()
@@ -122,47 +122,42 @@ const loginValidators = [
         .withMessage('Please provide a value for Password'),
 ];
 
-router.post('/login', csrfProtection, loginValidators, asyncHandler (async(req,res) => {
-        const {
-        username,
-        password,
-        } = req.body;
 
-        let errors = [];
-        const validatorErrors = validationResult(req);
 
-        if (validatorErrors.isEmpty()) {
+router.post('/guest', asyncHandler(async (req, res) => {
 
-        const user = await db.User.findOne({ where: { username } });
+    const password = "guestUser123!";
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-        if (user !== null) {
+    let guest = await db.User.findAll({
+        where: {
+            username: 'guest'
+        }
+    })
 
-            const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
+    if (guest[0]) {
+        loginUser(req, res, guest[0]);
+        return res.redirect('/');
+    } else {
 
-            if (passwordMatch) {
 
-            loginUser(req, res, user);
-            return res.redirect('/');
+        await db.User.create({
+            username: 'guest',
+            firstName: 'Guest',
+            lastName: 'User',
+            emailAddress: 'guest@user.com',
+            hashedPassword: hashedPassword
+        })
+
+        guest = await db.User.findAll({
+            where: {
+                username: 'guest'
             }
-        }
-
-        errors.push('Login failed for the provided username and password');
-        } else {
-        errors = validatorErrors.array().map((error) => error.msg);
-        }
-
-        res.render('user-login', {
-        title: 'Login',
-        username,
-        errors,
-        csrfToken: req.csrfToken(),
-        });
+        })
+        loginUser(req, res, guest[0]);
+        return res.redirect('/');
+    }
 
 }));
-
-router.post('/logout', (req, res) => {
-    logoutUser(req, res);
-    res.redirect('/');
-});
 
 module.exports = router;

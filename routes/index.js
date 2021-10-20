@@ -4,7 +4,8 @@ const db = require('../db/models');
 const { requireAuth } = require('../auth');
 const { csrfProtection, asyncHandler } = require('./utils');
 
-router.get('/', asyncHandler (async(req, res, next) => {
+/* GET home page. */
+router.get('/', asyncHandler(async (req, res, next) => {
 
   const questions = await db.Question.findAll({
     order: [['createdAt', 'DESC']]
@@ -12,9 +13,17 @@ router.get('/', asyncHandler (async(req, res, next) => {
 
   res.render('home', {
     title: 'Home',
-    questions
+    questions,
+    userId = req.session.auth.userId,
+    username = user.username
+  })
+
+  res.render('home', {
+    title: 'Home',
+    questions,
+    username,
+    userId
   });
 
 }));
-
 module.exports = router;
