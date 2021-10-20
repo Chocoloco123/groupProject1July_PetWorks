@@ -44,4 +44,15 @@ router.post('/:id/edit', csrfProtection, asyncHandler(async (req, res) => {
   res.redirect(`/questions/${editComment.Answer.questionId}`);
 }));
 
+router.get('/:id/delete', asyncHandler(async (req, res) => {
+  const commentId = req.params.id;
+
+  const deleteComment = await db.Comment.findByPk(commentId, {
+    include: [db.Answer]
+  })
+  await deleteComment.destroy()
+
+  res.redirect(`/questions/${deleteComment.Answer.questionId}`);
+}));
+
 module.exports = router;

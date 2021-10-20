@@ -100,10 +100,6 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
 
     await deleteQuestion.destroy()
 
-    questions = await db.Question.findAll({
-                where: { category: category.toLowerCase() }
-            })
-
     if (category === 'Home') {
         questions = await db.Question.findAll({
             order: [['createdAt', 'DESC']]
@@ -121,7 +117,6 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
         currentUserId
     })
 
-    // res.redirect('/');
 }));
 
 module.exports = router;
