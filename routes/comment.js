@@ -9,34 +9,39 @@ const { csrfProtection, asyncHandler } = require('./utils');
 router.post('/', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
   const { comment, userId, answerId, questionId } = req.body;
 
-  // const question = await db.Question.findByPk(questionId, {
-  //   include: [db.User, { model: db.Answer, include: db.Comment }]
-  // });
-
-  // const answers = await db.Answer.findAll({
-  //   where: {
-  //     questionId
-  //   },
-  //   include: [db.User, db.Question, db.Comment],
-  //   order: [['createdAt', 'DESC']]
-  // });
-
-  // Creation of new comment to be submitted to database
   const newComment = await db.Comment.create({
     userId: parseInt(userId),
     answerId: parseInt(answerId),
     comment
   })
 
-  // Array of comments from database
-  // const comments = await db.Comment.findAll({
-  //   where: {
-  //     answerId
-  //   },
-  //   order: [['createdAt', 'DESC']]
-  // })
-
   res.redirect(`/questions/${questionId}`);
 }))
+
+router.get('/:id/edit', csrfProtection, asyncHandler(async (req, res) => {
+  let commentId = req.params.id;
+  const comment = await db.Comment.findByPk(commentId)
+
+  res.render('edit-comment', {
+    comment,
+    csrfToken: req.csrfToken()
+  })
+}));
+
+router.post('/:id/edit', csrfProtection, asyncHandler(async (req, res) => {
+  const { comment } = req.body
+  let commentId = req.params.id;
+  const editComment = await db.Comment.findByPk(commentId, {
+    include: [db.Answer]
+  })
+
+  editComment.update({
+    comment
+  });
+
+  await editComment.save();
+
+  res.redirect(`/questions/${editComment.Answer.questionId}`);
+}));
 
 module.exports = router;

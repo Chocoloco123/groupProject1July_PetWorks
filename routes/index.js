@@ -11,10 +11,11 @@ router.get('/', asyncHandler(async (req, res, next) => {
     order: [['createdAt', 'DESC']]
   });
 
+  let userId;
   let username;
 
   if (req.session.auth) {
-    const userId = req.session.auth.userId
+    userId = req.session.auth.userId
     let user = await db.User.findByPk(userId);
     username = user.username;
   }
@@ -22,7 +23,8 @@ router.get('/', asyncHandler(async (req, res, next) => {
   res.render('home', {
     title: 'Home',
     questions,
-    username
+    username,
+    userId
   });
 
 }));
