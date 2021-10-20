@@ -3,7 +3,10 @@ extends layout.pug
 block content
     include navigation-bar.pug
     div(id='welcome-petFilter')
-        div(id='welcome') Welcome User
+        if locals.authenticated
+            div(id='welcome') Welcome #{username}
+        else
+            div(id='welcome') Welcome!
         include petType.pug
     div(id='categories-questionFeed')
         include categories.pug

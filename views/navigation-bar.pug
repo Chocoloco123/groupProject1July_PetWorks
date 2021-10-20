@@ -5,5 +5,14 @@ div(id='nav-bar')
     div(id='home-logout')
         form(action='/' method='get')
             button(type='submit' id='homeButton') Home
-        form(action='/user/logout' method='post')
-            button(type='submit' id='logoutButton') Log out
+        //- a(href="/") Home
+        if locals.authenticated
+            form(action='/user/logout' method='post')
+                button(type='submit' id='logoutButton') Log Out
+        else 
+            form(action='/user/login' method='get')
+                button(type='submit' id='loginButton') Log In
+            form(action='/user/register' method='get')
+                button(type='submit' id='registerButton') Register
+            form(action='/user/guest' method='post')
+                button(type='submit' id='guestButton') Log in as guest

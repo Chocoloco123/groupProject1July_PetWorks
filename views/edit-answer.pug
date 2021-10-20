@@ -3,14 +3,14 @@ extends layout.pug
 include utils.pug
 
 block content
-    div(id='addAnswer-form')
+    div(id='editAnswer-form')
         +validationErrorSummary(errors)
-        div Add an answer
+        div Edit Answer:
         div Answer:
-        form(action='/answers' method='post')
+        form(action=`/answers/${answer.id}/edit` method='post')
             input(type='hidden' value=questionId name='questionId')
             input(type='hidden' name='_csrf' value=csrfToken)
-            +field('Answer', 'answer', null, 'textarea')
+            +field('Answer', 'answer', answer.answer, 'textarea')
 
             div
                 button(type='submit') Submit
