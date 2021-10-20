@@ -12,7 +12,7 @@ window.addEventListener("load", (event) => {
                 const questionFeed = document.getElementById("questionFeed")
 
                 let data;
-                const res = await fetch(`http://localhost:8080/questions/${e.target.id.split("-")[2]}/delete`, {
+                const res = await fetch(`/questions/${e.target.id.split("-")[2]}/delete`, {
                     method: "POST",
                     body: JSON.stringify({
                         id: e.target.id.split("-")[2],
