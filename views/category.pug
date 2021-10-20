@@ -1,5 +1,11 @@
 extends layout.pug
 
+append head
+  //- add page specific styles by appending to the head
+  link(rel="stylesheet" href="/stylesheets/index.css")
+  //- add page specific js
+  script(src="/javascripts/index.js" type="module" defer)
+
 block content
     include navigation-bar.pug
     div(id='welcome-petFilter')
@@ -8,3 +14,4 @@ block content
     div(id='categories-questionFeed')
         include categories.pug
         include question-feed.pug
+    input(type='hidden' id='queryCategory' name='pageTag' value=`${title}`)

@@ -187,7 +187,7 @@ a:hover{
    font-weight: 600;
  }
 
- #editQuestion, #deleteQuestion{
+ #editQuestion, .deleteQuestion{
    margin: 10px;
    text-decoration: none;
  }
