@@ -1,10 +1,11 @@
 extends layout.pug
 
 block content
-    include navigation-bar.pug
-    div(id='welcome-petFilter')
-        div(id='welcome') Welcome User!
-        include petType.pug
-    div(id='categories-questionFeed')
-        include categories.pug
-        include question-feed.pug
+    div(id='home-page')
+        include navigation-bar.pug
+        div(id='welcome-petFilter')
+            div(id='welcome') Welcome User!
+            include petType.pug
+        div(id='categories-questionFeed')
+            include categories.pug
+            include question-feed.pug

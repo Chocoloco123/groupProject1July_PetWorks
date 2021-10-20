@@ -5,12 +5,12 @@ include utils.pug
 block content
     div(id='addQuestion-form')
         +validationErrorSummary(errors)
-        div Ask a Question:
-        div Username asks
+        div(id='askAQuestion') Ask a Question:
         form(action='/questions/new' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            +field('Question', 'question', null, 'textarea')
-            
+            div(id='userAsked') #{user.username} asked: 
+            +field(``, 'question', null, 'textarea')
+
             label(for='category') Choose Category:
                 select(name='category')
                     option(value='activity') Activity
@@ -18,7 +18,7 @@ block content
                     option(value='socialization') Socialization
                     option(value='training') Training
                     option(value='veterinary') Veterinary
-                    option(value='miscellaneous') Misc. 
+                    option(value='miscellaneous') Misc.
             label(for='petType') Choose Pet Type:
                 select(name='petType')
                     option(value='dog') Dog
