@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const { loginUser, logoutUser } = require('../auth');
 const bcrypt = require('bcryptjs');
 const { check, validationResult } = require('express-validator');
@@ -77,7 +77,7 @@ const userValidators = [
 ];
 
 router.post('/register', csrfProtection, userValidators, asyncHandler (async(req, res) => {
-  
+
   const { username, firstName, lastName, emailAddress, password } = req.body;
     const user = db.User.build({
         username,
@@ -107,7 +107,7 @@ router.post('/register', csrfProtection, userValidators, asyncHandler (async(req
 }));
 
 router.get('/login', csrfProtection, (req,res) => {
-    res.render('user-login', { 
+    res.render('user-login', {
         title: 'Login',
         csrfToken: req.csrfToken()
     })
@@ -136,7 +136,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler (async(req,r
         const user = await db.User.findOne({ where: { username } });
 
         if (user !== null) {
-            
+
             const passwordMatch = await bcrypt.compare(password, user.hashedPassword.toString());
 
             if (passwordMatch) {
@@ -157,7 +157,7 @@ router.post('/login', csrfProtection, loginValidators, asyncHandler (async(req,r
         errors,
         csrfToken: req.csrfToken(),
         });
-    
+
 }));
 
 router.post('/logout', (req, res) => {
