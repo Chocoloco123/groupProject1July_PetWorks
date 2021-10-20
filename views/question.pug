@@ -1,34 +1,33 @@
 extends layout.pug
 
-include utils.pug 
+include utils.pug
 
 block content
     include navigation-bar.pug
-    div #{question.User.username}:
-    div #{question.question}
-    div 
+    div(id='questionUsername') Asked by: #{question.User.username}
+    div(id='questionContent') #{question.question}
+    if question.userId === userId
+        div
+            a(href=`/questions/${question.id}/edit` id='editQuestion') Edit
+            a(href='/answers/:id/delete' id='deleteQuestion') Delete
+    div
         form(action='/answers/new' method='post')
-            //- input(type='hidden' value=questionId name='questionId')
             input(type='hidden' value=question.id name='questionId')
             input(type='hidden' name='_csrf' value=csrfToken)
             button(type='submit' id='addAnswerButton') Add Answer
-        if question.userId === userId  
-            div 
-                a(href=`/questions/${question.id}/edit`) Edit 
-                a(href='/answers/:id/delete') Delete
     if answers
         for answer in answers
-            
+
             div
                 div #{answer.User.username}:
                 p= answer.answer
-                    div 
+                    div
                         button(type='button') Comment Open/Close
                         if answer.userId === userId
                             div
-                                a(href=`/answers/${answer.id}/edit`) Edit 
+                                a(href=`/answers/${answer.id}/edit`) Edit
                                 a(href='/answers/:id/delete') Delete
-                    
+
                         form(action='/comments' method='post')
                             input(type='hidden' name='_csrf' value=csrfToken)
                             input(type='hidden' value=userId name='userId')
@@ -36,26 +35,21 @@ block content
                             input(type='hidden' value=question.id name='questionId')
                             +field('', 'comment', null, null, 'Please submit comment...')
                             button(type="submit") Submit
-                            if comments 
-                                for comment in comments 
+                            if comments
+                                for comment in comments
                                     if comment.answerId === answer.id
-                                        div 
-                                            for user in users 
-                                                if user.id === comment.userId 
+                                        div
+                                            for user in users
+                                                if user.id === comment.userId
                                                     div #{user.username}:
                                             p= comment.comment
                                             if comment.userId === userId
                                                 div
-                                                    a(href=`/comments/${comment.id}/edit`) Edit 
-                                                    a(href='/answers/:id/delete') Delete
+                                                    a(href=`/comments/${comment.id}/edit` id='editComment') Edit
+                                                    a(href='/answers/:id/delete' id='deleteComment') Delete
 
 
                         //- if answer.Comments
                         //-     for comment in answer.Comments
-                        //-         div 
+                        //-         div
                         //-             p= comment.comment
-                        
-
-    
-            
-        

@@ -1,10 +1,8 @@
 div(id='questionFeed')
     each question in questions
-        div(class='question')
-            a(href=`/questions/${question.id}`)= question.question
-        if question.userId === userId  
-            div 
-                a(href=`/questions/${question.id}/edit`) Edit 
-                a(href='/answers/:id/delete') Delete
-            
-
+        label(class='question')
+            a(href=`/questions/${question.id}` class='questionText')= question.question
+        if question.userId === userId
+            div
+                a(href=`/questions/${question.id}/edit` id='editQuestion') Edit
+                a(href='/answers/:id/delete' id='deleteQuestion') Delete

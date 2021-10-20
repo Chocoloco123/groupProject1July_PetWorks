@@ -5,24 +5,24 @@ include utils.pug
 block content
     div(id='editQuestion-form')
         +validationErrorSummary(errors)
-        div Edit Question:
+        div(id='editAQuestion') Edit Question:
         form(action=`/questions/${question.id}/edit` method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            +field('Question', 'question', question.question, 'textarea')
-            
-            label(for='category') Choose Category:
-                select(name='category')
-                    option(value='activity') Activity
-                    option(value='nutrition') Nutrition
-                    option(value='socialization') Socialization
-                    option(value='training') Training
-                    option(value='veterinary') Veterinary
-                    option(value='miscellaneous') Misc. 
-            label(for='petType') Choose Pet Type:
-                select(name='petType')
-                    option(value='dog') Dog
-                    option(value='cat') Cat
-                    option(value='other') Other
-            div
-                button(type='submit') Submit
-                a(href='/') Cancel
+            +field('', 'question', question.question, 'textarea')
+            div(id='chooseQuestions')
+                label(for='category' id='chooseCategory') Choose Category:
+                    select(name='category')
+                        option(value='activity') Activity
+                        option(value='nutrition') Nutrition
+                        option(value='socialization') Socialization
+                        option(value='training') Training
+                        option(value='veterinary') Veterinary
+                        option(value='miscellaneous') Misc.
+                label(for='petType' id='choosePetType') Choose Pet Type:
+                    select(name='petType')
+                        option(value='dog') Dog
+                        option(value='cat') Cat
+                        option(value='other') Other
+            div(id='questionButtons')
+                button(type='submit' id='submitQuestion') Submit
+                a(href='/' id='cancelQuestion') Cancel
