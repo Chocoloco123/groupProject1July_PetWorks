@@ -20,7 +20,7 @@ block content
         if question.userId === userId  
             div 
                 a(href=`/questions/${question.id}/edit`) Edit 
-                a(class=('delete-button') href=`/questions/${question.id}/delete`) Delete
+                a(class=('questionPage-delete-button') href=`/questions/${question.id}/pageDelete`) Delete
     if answers
         for answer in answers
             

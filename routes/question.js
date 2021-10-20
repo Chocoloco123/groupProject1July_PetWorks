@@ -119,5 +119,14 @@ router.post('/:id/delete', asyncHandler(async (req, res) => {
 
 }));
 
+router.get('/:id/pageDelete', asyncHandler(async (req, res) => {
+    const questionId = req.params.id;
+
+    const deleteQuestion = await db.Question.findByPk(questionId)
+    await deleteQuestion.destroy()   
+
+    res.redirect(`/`);
+}));
+
 module.exports = router;
 
