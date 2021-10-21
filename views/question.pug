@@ -24,7 +24,6 @@ block content
                 a(class=('questionPage-delete-button') href=`/questions/${question.id}/pageDelete`) Delete
     if answers
         for answer in answers
-
             div
                 div #{answer.User.username}:
                 p= answer.answer
