@@ -33,8 +33,8 @@ block content
                             div
                                 a(href=`/answers/${answer.id}/edit`) Edit
                                 a(class=('answer-delete-button') href=`/answers/${answer.id}/delete`) Delete
-                    div
-                        form(action='/comments' method='post' class='targetShow' id="commentsFeed")
+                    div(id="commentsFeed" class='targetShow')
+                        form(action='/comments' method='post')
                             input(type='hidden' name='_csrf' value=csrfToken)
                             input(type='hidden' value=userId name='userId')
                             input(type='hidden' value=answer.id name='answerId')

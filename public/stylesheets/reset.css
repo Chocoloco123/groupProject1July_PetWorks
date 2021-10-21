@@ -27,11 +27,13 @@ h1 {
 }
 
 .targetShow{
-  visibility: visible;
+  display: block;
+  /* visibility: visible; */
 }
 
 .targetHide{
-  visibility: hidden;
+  display: none;
+  /* visibility: hidden; */
 }
 
 .filterButtonClicked{
