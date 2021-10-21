@@ -14,6 +14,7 @@ const questionRouter = require('./routes/question');
 const answerRouter = require('./routes/answer');
 const commentRouter = require('./routes/comment');
 const categoryRouter = require('./routes/category');
+const searchRouter = require('./routes/search');
 const app = express();
 
 // view engine setup
@@ -46,6 +47,7 @@ app.use('/questions', questionRouter);
 app.use('/answers', answerRouter);
 app.use('/comments', commentRouter);
 app.use('/categories', categoryRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
