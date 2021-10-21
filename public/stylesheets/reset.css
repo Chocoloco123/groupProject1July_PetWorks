@@ -4,11 +4,12 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #0060ba;
 }
 
 * {
   box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
@@ -31,26 +32,23 @@ select{
   margin: 5px 10px 5px 10px;
 }
 
-button:hover{
+/* button:hover{
   box-shadow: 0px 0px 2px 2px lightgrey;
-}
+} */
 
 a:hover{
-  color: rgb(97, 177, 252);
+  /* color: rgb(97, 177, 252); */
+  /* color: #44afe8; */
+  color: #3daffc;
 }
 
-#petFilter {
-  display: flex;
-  justify-content: space-between;
+.hideComments {
+  visibility: hidden;
 }
 
-#welcome-petFilter {
-  display: flex;
-  justify-content: space-between;
-}
 
-#fullScreen{
-  background-color: rgba(243, 243, 243, 0.788);
+#body-background{
+  background-color: rgb(245, 245, 245);
 }
 
 /* -------------------nav bar ----------------------------------- */
@@ -59,7 +57,8 @@ a:hover{
   justify-content: space-between;
   align-items: center;
   background-color: white;
-  box-shadow: 0px 2px 8px lightgrey;
+  box-shadow: 0px 1px 5px rgb(208, 208, 208);
+  padding: 0px 20px;
 }
 
 #home-logout {
@@ -68,27 +67,65 @@ a:hover{
 }
 
 #puppy-pic{
-  height: 50px;
-  width: 50px;
-  margin: 10px;
+  height: 75px;
+  width: 75px;
+  margin: 8px 0px;
 }
 
 #petWorks{
-  height: 50px;
-  width: 100px;
-  margin-left: 5px;
-  margin-bottom: 10px;
+  height: 55px;
+  width: 110px;
+  margin-left: 0px;
+  margin-bottom: 14px;
 }
 
 #addQuestionButton{
-  width: 100px;
+  width: 210px;
   height: 50px;
-  font-family: "Gill Sans", sans-serif;
-  font-size: 20px;
-  border-radius: 15px;
+  font-size: 24px;
+  border-radius: 5px;
   margin: 5px;
-  background-color:rgb(97, 177, 252);
+  background-color:#5abdff;
   color: white;
+}
+
+#addQuestionButton:hover{
+  width: 218px;
+  height: 52px;
+  font-size: 26px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.navButton {
+  font-size: 16px;
+  background: white;
+  border: none;
+}
+
+.navButton:hover {
+  text-decoration: underline;
+}
+
+#registerButton {
+  margin-left: 10px;
+}
+
+#logoutButton {
+  margin-left: 10px;
+}
+
+#homeButton {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 18px;
+  /* text-decoration: none; */
+}
+
+#homeButton:hover {
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 220, 80, 0.9);
 }
 
 #home-logout{
@@ -96,18 +133,18 @@ a:hover{
   align-items: center;
 }
 
-#homeButton, #logoutButton, #loginButton, #registerButton{
+/* #homeButton, #logoutButton, #loginButton, #registerButton{
   font-family: "Gill Sans", sans-serif;
   height: 30px;
   width: 90px;
   font-size: 20px;
   border-radius: 20px;
   margin: 3px;
-  background-color:rgb(97, 177, 252);
+  background-color:#5abdff;
   color: white;
-}
+} */
 
-#guestButton{
+/* #guestButton{
   font-family: "Gill Sans", sans-serif;
   height: 30px;
   width: 160px;
@@ -116,25 +153,57 @@ a:hover{
   margin: 3px;
   background-color: rgb(97, 177, 252);
   color: white;
-}
+} */
 
 
 /* ----------- filter bar --------------------------------------- */
+#welcome-petFilter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 35px;
+}
 
 #welcome{
-  font-family: "Gill Sans", sans-serif;
-  font-size: 15px;
-  margin: 18px 0px 12px 30px;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.675)
+  /* margin: 18px 0px 12px 30px; */
+}
+
+#category-title {
+  font-size: 34px;
+  border: solid 1px black;
+  border-radius: 2px;
+  padding: 0px 10px;
+}
+
+#welcome-username {
+  font-size: 20px;
+  font-weight: 400;
+  /* color: #44aee8; */
+  color: #44afe8;
 }
 
 #petFilter{
   display: flex;
+  margin: 0px 0px;
 }
 
 .filter-btn{
-  border-radius: 5px;
-  height: 25px;
-  margin: 18px 30px 12px 30px;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 0px;
+  box-sizing: border-box;
+  width: 110px;
+  margin: 18px 0px;
+  padding: 7px;
+  background: rgb(255, 220, 80);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.675)
+}
+
+.filter-btn:hover {
+  background-color:#5abdff;
+  color: white;
 }
 
 
@@ -142,28 +211,33 @@ a:hover{
 #categories-bar {
   display: flex;
   flex-direction: column;
-  margin-left: 15px;
-  border-bottom: 2px solid grey;
+  border-bottom: 2px solid rgba(0, 0, 0, 9.0);
   padding: 5px;
-  width: 185px;
-  max-height: 225px;
+  width: 160px;
+  max-height: 250px;
 }
 
-#filterBy{
-  font-size: 13px;
+/* #filterBy{
+  font-size: 100px;
   margin-bottom: 8px;
-}
+} */
 
 .category{
-  font-family: "Gill Sans", sans-serif;
-  font-size: 20px;
   text-decoration: none;
-  margin-bottom: 10px;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 9.0);
+  padding-bottom: 12px;
+}
+
+.category:hover {
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 /* ---------------- questions feed ----------------------------------- */
 #categories-questionFeed {
   display: flex;
+  margin: 4px 35px 0px 35px;
 }
 
  #questionFeed{
@@ -171,42 +245,53 @@ a:hover{
    justify-content: center;
    width: 100%;
    height: 100%;
-   margin-right: 20px;
    margin-left: 20px;
    align-items: center;
    flex-direction: column;
  }
 
  .question{
-   /* border: 1px solid grey; */
-   box-shadow: 0px 0px 1px 1px lightgrey;
-   border-radius: 3px;
-   width: 98%;
-   margin: 5px;
-   padding: 5px;
+   border: 1px solid rgba(208, 208, 208, 0.35);
+   box-shadow: 0px 0px 1px 1px rgb(208, 208, 208);
+   display: flex;
+   justify-content: space-between;
+   border-radius: 5px;
+   width: 100%;
+   margin-bottom: 18px;
+   padding: 9px 18px;
    background-color: white;
  }
 
  .question:hover{
-  background-color: rgba(243, 243, 243, 0.548);
+  background-color: rgb(235, 235, 235);
  }
 
  .questionText{
-   font-family: fontfamily;
    text-decoration: none;
-   font-weight: 600;
+   font-size: 22px;
  }
 
- #editQuestion, .deleteQuestion{
-   margin: 10px;
-   text-decoration: none;
+ .editDeleteContainer {
+   display: flex;
+   align-items: center;
+ }
+
+ .editDelete {
+  margin: 0px 10px;
+  color: rgba(0, 0, 0, 0.675);
+  text-decoration: none;
+ }
+
+ .deleteQuestion:hover {
+  color: rgb(255, 65, 65);
+  text-decoration: underline;
  }
 
 
  /* ------------- question page --------------------------------------------- */
-#questionUsername, #questionContent{
+/* #questionUsername, #questionContent{
   font-family: fontfamily;
-}
+} */
 
 #questionUsername{
   margin: 20px 30px 0px;

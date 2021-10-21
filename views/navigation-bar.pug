@@ -6,15 +6,15 @@ div(id='nav-bar')
         button(type='submit' id='addQuestionButton') Ask a Question
     div(id='home-logout')
         form(action='/' method='get')
-            button(type='submit' id='homeButton') Home
+            button(type='submit' class='navButton' id='homeButton') Home
         //- a(href="/") Home
         if locals.authenticated
             form(action='/user/logout' method='post')
-                button(type='submit' id='logoutButton') Log Out
+                button(type='submit' class='navButton' id='logoutButton') Log Out
         else
-            form(action='/user/login' method='get')
-                button(type='submit' id='loginButton') Log In
             form(action='/user/register' method='get')
-                button(type='submit' id='registerButton') Register
+                button(type='submit' class='navButton' id='registerButton') Register
+            form(action='/user/login' method='get')
+                button(type='submit' class='navButton' id='loginButton') Log In
             form(action='/user/guest' method='post')
-                button(type='submit' id='guestButton') Log in as guest
+                button(type='submit' class='navButton' id='guestButton') Log in as guest
