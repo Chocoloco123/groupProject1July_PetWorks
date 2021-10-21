@@ -7,7 +7,7 @@ window.addEventListener("load", (event) => {
         deleteButtons.forEach((button) => {
             button.addEventListener("click", async (e) => {
                 e.preventDefault();
-                
+
                 const category = document.getElementById("queryCategory")
                 const questionFeed = document.getElementById("questionFeed")
 

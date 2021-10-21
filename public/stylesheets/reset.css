@@ -26,6 +26,10 @@ h1 {
   font-size: 2rem;
 }
 
+.target{
+  visibility: hidden;
+}
+
 #nav-bar {
   display: flex;
   justify-content: space-between;
