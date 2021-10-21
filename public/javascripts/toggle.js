@@ -1,6 +1,5 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     const toggleButton = document.querySelectorAll('.toggleButton')
-    const answersFeed = document.getElementsByClassName('answersFeed')
 
     toggleButton.forEach(ele => {
         if (toggleButton) {
@@ -12,5 +11,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
         })
     }})
 
+    const filterToggleButtons = document.getElementsByClassName('filter-btn')
 
+    for(let i=0; i<filterToggleButtons.length; i++){
+        const button = filterToggleButtons[i];
+        button.addEventListener('click', (e)=> {
+            const onButton = document.querySelector('.filterButtonClicked')
+            const target = e.target
+
+            target.setAttribute('class', 'filterButtonClicked')
+            onButton.setAttribute('class', 'filterButtonUnclicked')
+        })
+    }
 })
