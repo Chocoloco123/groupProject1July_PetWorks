@@ -3,12 +3,18 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const toggleButton = document.getElementById('toggleButton')
 
     toggleButton.addEventListener('click', (e) => {
-        console.log(commentToggle, toggleButton)
-        // e.preventDefault();
         if (commentToggle.getAttribute('class') === 'targetShow') commentToggle.setAttribute('class', 'targetHide')
         else commentToggle.setAttribute('class', 'targetShow')
     })
 
 
-    const filterButton = document
+    const filterButton = document.getElementsByClassName('filterButtonUnclicked')
+    console.log(filterButton)
+
+    filterButton.forEach((ele)=> {
+        ele.addEventListener('click', ()=> {
+            if (ele.getAttribute('class') === 'filterButtonUnclicked') ele.setAttribute('class', 'filterButtonClicked')
+            else ele.setAttribute('class', 'filterButtonUnclicked')
+        })
+    })
 })
