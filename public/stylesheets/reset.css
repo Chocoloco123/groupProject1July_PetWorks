@@ -36,7 +36,7 @@ button:hover{
 }
 
 a:hover{
-  color: rgb(97, 177, 252);
+  color: #38B6FF;
 }
 
 #petFilter {
@@ -87,7 +87,7 @@ a:hover{
   font-size: 20px;
   border-radius: 15px;
   margin: 5px;
-  background-color:rgb(97, 177, 252);
+  background-color:#38B6FF;
   color: white;
 }
 
@@ -103,7 +103,7 @@ a:hover{
   font-size: 20px;
   border-radius: 20px;
   margin: 3px;
-  background-color:rgb(97, 177, 252);
+  background-color:#38B6FF;
   color: white;
 }
 
@@ -114,7 +114,7 @@ a:hover{
   font-size: 20px;
   border-radius: 20px;
   margin: 3px;
-  background-color: rgb(97, 177, 252);
+  background-color: #38B6FF;
   color: white;
 }
 
@@ -227,7 +227,7 @@ a:hover{
   font-size: 15px;
   border-radius: 15px;
   margin: 5px;
-  background-color: rgb(97, 177, 252);
+  background-color: #38B6FF;
   color: white;
 }
 
