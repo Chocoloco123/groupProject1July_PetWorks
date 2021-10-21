@@ -28,12 +28,11 @@ block content
                 div #{answer.User.username}:
                 p= answer.answer
                     div(class='answersOptions')
-                        button(type='button' class='toggleButton' id=`showComment-${answer.id}`) Show Comments
                         if answer.userId === userId
                             div
                                 a(href=`/answers/${answer.id}/edit`) Edit
                                 a(class=('answer-delete-button') href=`/answers/${answer.id}/delete`) Delete
-                    div(id=`commentsFeed-${answer.id}` class='targetShow')
+                    div
                         form(action='/comments' method='post')
                             input(type='hidden' name='_csrf' value=csrfToken)
                             input(type='hidden' value=userId name='userId')
@@ -41,6 +40,8 @@ block content
                             input(type='hidden' value=question.id name='questionId')
                             +field('', 'comment', null, null, 'Please submit comment...')
                             button(type="submit") Submit
+                        button(type='button' class='toggleButton' id=`showComment-${answer.id}`) Show Comments
+                        div(id=`commentsFeed-${answer.id}` class='targetShow')
                             if comments
                                 for comment in comments
                                     if comment.answerId === answer.id
