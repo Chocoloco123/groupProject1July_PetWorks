@@ -26,8 +26,20 @@ h1 {
   font-size: 2rem;
 }
 
-.target{
+.targetShow{
+  visibility: visible;
+}
+
+.targetHide{
   visibility: hidden;
+}
+
+.filterButtonClicked{
+  background-color: #FFDE59;
+}
+
+.filterButtonUnclicked{
+  background-color: lightgrey;
 }
 
 #nav-bar {

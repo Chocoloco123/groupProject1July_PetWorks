@@ -29,13 +29,13 @@ block content
                 div #{answer.User.username}:
                 p= answer.answer
                     div
-                        button(type='button' id='toggleButton') Comments
+                        button(type='button' id='toggleButton') Show Comments
                         if answer.userId === userId
                             div
                                 a(href=`/answers/${answer.id}/edit`) Edit
                                 a(class=('answer-delete-button') href=`/answers/${answer.id}/delete`) Delete
                     div
-                        form(action='/comments' method='post' class='target')
+                        form(action='/comments' method='post' class='targetShow' id="commentsFeed")
                             input(type='hidden' name='_csrf' value=csrfToken)
                             input(type='hidden' value=userId name='userId')
                             input(type='hidden' value=answer.id name='answerId')
