@@ -1,5 +1,6 @@
 div(id='nav-bar')
-    img(src='/images/PetWorksLogo.png' width=100 height=100)
+    a(href='/')
+        img(src='/images/PetWorksLogo.png' width=100 height=100)
     form(action='/questions/new' method='get')
         button(type='submit' id='addQuestionButton') Ask a Question
     div(id='home-logout')
@@ -9,7 +10,7 @@ div(id='nav-bar')
         if locals.authenticated
             form(action='/user/logout' method='post')
                 button(type='submit' id='logoutButton') Log Out
-        else 
+        else
             form(action='/user/login' method='get')
                 button(type='submit' id='loginButton') Log In
             form(action='/user/register' method='get')
