@@ -17,7 +17,7 @@ block content
                 span#welcome asked:
             div(id='questionContent' class='questionText') #{question.question}
             if question.userId === userId
-                div.editDeleteContainer
+                div.editDeleteContainer(id="question-qpageEditDelete")
                     a(href=`/questions/${question.id}/edit` id='editQuestion' class='editDelete') Edit
                     a(class='questionPage-delete-button editDelete deleteQuestion' href=`/questions/${question.id}/pageDelete` id='deleteQuestion') Delete
         div(class='answerButton-container')
