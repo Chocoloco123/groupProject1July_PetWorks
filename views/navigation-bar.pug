@@ -1,13 +1,12 @@
 div(id='nav-bar')
-    div
+    div.navChild
         img(src='/images/PetWorks_puppy.png' id='puppy-pic')
         img(src='/images/PetWorksLogo.png' id='petWorks')
-    form(action='/questions/new' method='get')
+    form(action='/questions/new' method='get' class="navChild")
         button(type='submit' id='addQuestionButton') Ask a Question
-    div(id='home-logout')
+    div(id='home-logout' class="navChild")
         form(action='/' method='get')
             button(type='submit' class='navButton' id='homeButton') Home
-        //- a(href="/") Home
         if locals.authenticated
             form(action='/user/logout' method='post')
                 button(type='submit' class='navButton' id='logoutButton') Log Out

@@ -61,6 +61,10 @@ a:hover{
   padding: 0px 20px;
 }
 
+/* .navChild {
+  width: 33%;
+} */
+
 #home-logout {
   display: flex;
   justify-content: space-between;
@@ -87,6 +91,7 @@ a:hover{
   margin: 5px;
   background-color:#5abdff;
   color: white;
+  justify-self: center;
 }
 
 #addQuestionButton:hover{
@@ -120,7 +125,7 @@ a:hover{
   border: solid 1px black;
   color: white;
   font-size: 18px;
-  /* text-decoration: none; */
+  text-decoration: none;
 }
 
 #homeButton:hover {
@@ -289,9 +294,157 @@ a:hover{
 
 
  /* ------------- question page --------------------------------------------- */
-/* #questionUsername, #questionContent{
-  font-family: fontfamily;
-} */
+
+.question-pageContainer{
+  /* border: 1px solid rgba(208, 208, 208, 0.35); */
+  box-shadow: 0px 0px 1px 1px rgb(208, 208, 208);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* margin-bottom: 50px; */
+  padding: 20px 35px;
+  background-color: white;
+}
+
+#questionContent {
+  font-size: 34px;
+  /* position: fixed; */
+}
+
+.answerButton-container{
+  /* border: 1px solid rgba(208, 208, 208, 0.35);
+  box-shadow: 0px 0px 1px 1px rgb(208, 208, 208); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 35px;
+  background-color: rgb(255, 255, 255);
+}
+
+#addAnswerButton {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+#addAnswerButton:hover {
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 220, 80, 0.9);
+}
+
+.answers-container {
+  width: 100%;
+  /* margin-bottom: 50px; */
+  padding: 10px 35px;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid black;
+}
+
+#answerEditDelete {
+  display: flex;
+  justify-content: space-between;
+}
+
+#answerContent {
+  font-size: 20px;
+  margin-left: 35px;
+}
+
+#viewCommentsButton {
+  background-color:rgb(245, 245, 245);
+  border-radius: 2px;
+  border: solid 1px black;
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#commentsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.comment-submit {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+#submitAnswer {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  margin: 0px 10px;
+}
+
+#submitAnswer:hover {
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 220, 80, 0.9);
+}
+
+.commentField {
+  font-size: 16px;
+  width: 225px;
+}
+
+.commentField:focus {
+  outline: none;
+}
+
+#comments {
+  padding: 10px 35px;
+  background: white;
+  width: 100%;
+}
+
+#commentEditDelete {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2px;
+  padding-bottom: 35px;
+}
+
+#commentContent {
+  font-size: 18px;
+  margin-left: 35px;
+}
+
+#answersLabel {
+  margin-left: 35px;
+}
+
+#respondedTag {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 5px;
+}
+
+
+
+ /* .question{
+   border: 1px solid rgba(208, 208, 208, 0.35);
+   box-shadow: 0px 0px 1px 1px rgb(208, 208, 208);
+   display: flex;
+   justify-content: space-between;
+   border-radius: 5px;
+   width: 100%;
+   margin-bottom: 18px;
+   padding: 9px 18px;
+   background-color: white;
+ }
 
 #questionUsername{
   margin: 20px 30px 0px;
@@ -342,7 +495,7 @@ a:hover{
 
 #toggle{
   margin: 10px;
-}
+} */
 
 /* .target{
   display:none;
@@ -405,7 +558,7 @@ a:hover{
   margin-right: 5px;
 }
 
-#submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{
+/* #submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{
   margin: 0px 10px 0px;
   text-decoration: none;
-}
+} */
