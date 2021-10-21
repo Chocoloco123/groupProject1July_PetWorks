@@ -36,14 +36,17 @@ window.addEventListener('load', (event) => {
     filterBtnArr[i].addEventListener('click', async (e) => {
       e.preventDefault();
       let data;
-      let feed = document.getElementById('questionFeed');
-      console.log(feed);
-      // console.log(e.target.id);
+      const category = document.getElementById("queryCategory")
+
+      console.log(category.value)
+
+      let feed = document.getElementById('questionFeed')
 
       const result = await fetch(`/search/${e.target.id}`, {
         method: "POST",
         body: JSON.stringify({
           petType: e.target.id,
+          category: category.value
         }),
         headers: {
           "Content-Type": "application/json",
@@ -54,7 +57,6 @@ window.addEventListener('load', (event) => {
         data = await result.json();
         console.log(data);
       }
-      // feed.innerHTML = '<div>HELLO_WORLD</div>'
 
       // populate the question feed
       const newInnerHTML = (arrOfQuestions, userId) => {
@@ -74,36 +76,6 @@ window.addEventListener('load', (event) => {
       feed.innerHTML = newInnerHTML(data.questions, data.userId);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // const generateHTML = (arr, userId) => {
-      //   let HTML = ""
-
-      //   arr.forEach((question) => {
-      //       HTML += `<div class='question'><a href=/questions/${question.id}>${question.question}</a></div>`;
-
-      //       if (question.userId === userId) {
-      //           HTML += `<div><a href="/questions/${question.id}/edit">Edit </a><a class="delete-button" id="question-delete-${question.id}" href="">Delete</a></div>`;
-      //       }
-      //   })
-      //   return HTML;
-      // }
-
-      // feed.innerHTML = generateHTML(data.questions, data.userId);
     })
   }
 })
