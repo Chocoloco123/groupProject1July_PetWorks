@@ -3,17 +3,31 @@ extends layout.pug
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(action='/user/register' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('First Name', 'firstName', user.firstName)
-        +field('Last Name', 'lastName', user.lastName)
-        +field('Email Address', 'emailAddress', user.emailAddress)
-        +field('Username', 'username', user.username)
-        +field('Password', 'password', user.password, 'password')
-        +field('Confirm Password', 'confirmPassword', '', 'password')
-        div(class='py-4')
-            button(type='submit' class='btn btn-primary') Register
-            a(href='/' class='btn btn-warning ml-2') Cancel
-    div
-        p: a(href='/user/login') Already have an account?
+    div(id='formBox')
+        div(class='loginForm')
+            a(href='/')
+                    img(src='/images/PetWorks_puppy.png' id='puppy-pic-login' class='puppy-pic-logo')
+            img(src='/images/PetWorksLogo.png' id='petWorks')
+            +validationErrorSummary(errors)
+            form(action='/user/register' method='post')
+                input(type='hidden' name='_csrf' value=csrfToken)
+                div(class='loginNRegForm-Container')
+                    div(class='formInputParent')
+                        div(id='registerPg-firstName' class='login-txt') First Name 
+                        +field('', 'firstName', user.firstName)
+                        div(id='registerPg-LastName' class='login-txt') Last  Name 
+                        +field('', 'lastName', user.lastName)
+                        div(id='registerPg-emailAddress' class='login-txt') Email Address  
+                        +field('', 'emailAddress', user.emailAddress)
+                        div(id='registerPg-username' class='login-txt') Username   
+                        +field('', 'username', user.username)
+                        div(id='registerPg-password' class='login-txt') Password  
+                        +field('', 'password', user.password, 'password')
+                        div(id='registerPg-confirmPassword' class='login-txt') Confirm Password  
+                        +field('', 'confirmPassword', '', 'password')
+                    div(class='btnsLoginPg')
+                        div(class='py-4')
+                            button(type='submit' class='btn btn-primary regSubmitBtn') Register
+                            a(href='/' class='btn btn-warning ml-2 cancelBtn') Cancel
+                        div
+                            p: a(href='/user/login') Already have an account?
