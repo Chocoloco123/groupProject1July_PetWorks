@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }})
 
     const filterToggleButtons = document.getElementsByClassName('filter-btn')
-
+    console.log(filterToggleButtons);
     for(let i=0; i<filterToggleButtons.length; i++){
         const button = filterToggleButtons[i];
         button.addEventListener('click', (e)=> {
