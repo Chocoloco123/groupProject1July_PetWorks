@@ -36,14 +36,23 @@ window.addEventListener('load', (event) => {
     filterBtnArr[i].addEventListener('click', async (e) => {
       e.preventDefault();
       let data;
+<<<<<<< HEAD
       let feed = document.getElementById('questionFeed');
       // console.log(feed);
       // console.log(e.target.id);
+=======
+      const category = document.getElementById("queryCategory")
+
+      console.log(category.value)
+
+      let feed = document.getElementById('questionFeed')
+>>>>>>> main
 
       const result = await fetch(`/search/${e.target.id}`, {
         method: "POST",
         body: JSON.stringify({
           petType: e.target.id,
+          category: category.value
         }),
         headers: {
           "Content-Type": "application/json",
@@ -54,56 +63,32 @@ window.addEventListener('load', (event) => {
         data = await result.json();
         // console.log(data);
       }
-      // feed.innerHTML = '<div>HELLO_WORLD</div>'
 
       // populate the question feed
       const newInnerHTML = (arrOfQuestions, userId) => {
         let innerHTML = '';
 
+<<<<<<< HEAD
         // question = arr of questions
         arrOfQuestions.forEach(question => {
           innerHTML += `<div class="question"><a href="/questions/${question.id}">${question.question}</a></div>`;
-          if (question.userId === userId) {
-            innerHTML += `<div> <a href="/questions/${question.id}/edit">Edit </a><a class="delete-button" id="question-delete-${question.id}" href="">Delete</a></div>`
-          }
-        });
+=======
+        arrOfQuestions.forEach((question) => {
+          let currHTML = `<a class="questionText" href="/questions/${question.id}">${question.question}</a>`;
 
+>>>>>>> main
+          if (question.userId === userId) {
+            currHTML += `<div class="editDeleteContainer"><a class="editDelete" href="/questions/${question.id}/edit" id="editQuestion">Edit</a><a class="delete-button deleteQuestion editDelete" id="question-delete-${question.id}" href="">Delete</a></div>`
+          }
+
+          innerHTML += (`<div class="question">` + currHTML + `</div>`)
+
+        })
         return innerHTML;
       }
 
       feed.innerHTML = newInnerHTML(data.questions, data.userId);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      // const generateHTML = (arr, userId) => {
-      //   let HTML = ""
-
-      //   arr.forEach((question) => {
-      //       HTML += `<div class='question'><a href=/questions/${question.id}>${question.question}</a></div>`;
-
-      //       if (question.userId === userId) {
-      //           HTML += `<div><a href="/questions/${question.id}/edit">Edit </a><a class="delete-button" id="question-delete-${question.id}" href="">Delete</a></div>`;
-      //       }
-      //   })
-      //   return HTML;
-      // }
-
-      // feed.innerHTML = generateHTML(data.questions, data.userId);
     })
   }
 })

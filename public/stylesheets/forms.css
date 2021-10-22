@@ -1,0 +1,121 @@
+/* formBox to hold form */
+#formBox {
+  display:flex;
+  justify-content: center;
+}
+
+/* login form box */
+.loginForm {
+  background-color: white;
+  /* height: 95vh; */
+  width: 300px;
+  padding: 10px;
+  margin: 40px 100px 100px; 
+  box-shadow: 0px 0px 5px 2px lightgrey;
+  overflow-y: hidden;
+}
+
+/* Login & register button */
+.regSubmitBtn {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+/* hover effects for login & register buttons */
+.regSubmitBtn:hover {
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 220, 80, 0.9);
+}
+
+/* cancel button for login & register */
+.cancelBtn {
+  margin: 0px 10px 0px;
+  text-decoration: none;
+}
+
+#puppy-pic-login {
+  height: 75px;
+  width: 75px;
+  margin: 8px 5px;
+}
+
+.form-group {
+  display: flex;
+  /* padding-top: 10px; */
+}
+
+/* login and registerform container */
+.loginNRegForm-Container {
+  margin-left: 20px;
+}
+
+.btnsLoginPg {
+  padding-right: 17px;
+} 
+
+/* input info for login form */
+.formInputParent {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* padding for username and password txt */
+.login-txt{
+  padding-top: 10px;
+}
+
+/* error messages */
+.errorMessage{
+  color: rgb(255, 65, 65);
+  list-style-type: none;
+}
+
+.formErr {
+  margin: 20px;
+}
+
+/* submit btn for add question form */
+.submitBtn {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.addNEditHeaders {
+  margin: 15px;
+}
+
+.editAnswerFormContainer {
+  background-color: white;
+  /* height: 95vh; */
+  width: 500px;
+  padding: 10px;
+  margin: 40px 100px 100px; 
+  box-shadow: 0px 0px 5px 2px lightgrey;
+  overflow-y: hidden;
+}
+
+#editCommentBtns {
+  padding-top: 10px;
+}
+
+#editCommentFormContainment {
+  padding: 10px;
+}
+
+#editAnsCancel {
+  padding-left: 15px;
+}
+
+.editCommentSubmitBtn {
+  margin-top: 5px;
+  /* margin: 0px 10px 0px; */
+  text-decoration: none;
+}

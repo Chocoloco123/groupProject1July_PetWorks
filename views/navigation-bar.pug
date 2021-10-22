@@ -1,19 +1,33 @@
 div(id='nav-bar')
+<<<<<<< HEAD
     a(href='/')
         img(src='/images/PetWorksLogo.png' width=100 height=100)
     form(action='/questions/new' method='get')
+=======
+    div.navChild
+        a(href='/')
+            img(src='/images/PetWorks_puppy.png' id='puppy-pic' class='puppy-pic-logo')
+        img(src='/images/PetWorksLogo.png' id='petWorks')
+    form(action='/questions/new' method='get' class="navChild")
+>>>>>>> main
         button(type='submit' id='addQuestionButton') Ask a Question
-    div(id='home-logout')
+    div(id='home-logout' class="navChild")
         form(action='/' method='get')
-            button(type='submit' id='homeButton') Home
-        //- a(href="/") Home
+            button(type='submit' class='navButton' id='homeButton') Home
         if locals.authenticated
             form(action='/user/logout' method='post')
+<<<<<<< HEAD
                 button(type='submit' id='logoutButton') Log Out
         else
             form(action='/user/login' method='get')
                 button(type='submit' id='loginButton') Log In
+=======
+                button(type='submit' class='navButton' id='logoutButton') Log Out
+        else
+>>>>>>> main
             form(action='/user/register' method='get')
-                button(type='submit' id='registerButton') Register
+                button(type='submit' class='navButton' id='registerButton') Register
+            form(action='/user/login' method='get')
+                button(type='submit' class='navButton' id='loginButton') Log In
             form(action='/user/guest' method='post')
-                button(type='submit' id='guestButton') Log in as guest
+                button(type='submit' class='navButton' id='guestButton') Log in as guest

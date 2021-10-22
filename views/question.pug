@@ -11,6 +11,7 @@ include utils.pug
 
 block content
     include navigation-bar.pug
+<<<<<<< HEAD
     div #{question.User.username}:
     div #{question.question}
     div
@@ -34,10 +35,44 @@ block content
                                 a(class=('answer-delete-button') href=`/answers/${answer.id}/delete`) Delete
                     div
                         form(action='/comments' method='post')
+=======
+    div.questionPage
+        div(class='question-pageContainer')
+            div
+                span(id='welcome-username') #{question.User.username}
+                span#welcome asked:
+            div(id='questionContent' class='questionText') #{question.question}
+            if question.userId === userId
+                div.editDeleteContainer(id="question-qpageEditDelete")
+                    a(href=`/questions/${question.id}/edit` id='editQuestion' class='editDelete') Edit
+                    a(class='questionPage-delete-button editDelete deleteQuestion' href=`/questions/${question.id}/pageDelete` id='deleteQuestion') Delete
+        div(class='answerButton-container')
+            form(action='/answers/new' method='post')
+                input(type='hidden' value=question.id name='questionId')
+                input(type='hidden' name='_csrf' value=csrfToken)
+                button(type='submit' id='addAnswerButton' class='navButton') Add Answer
+
+        if answers
+            for answer in answers
+                div(class='answers-container')
+                    div#welcome-username #{answer.User.username}
+                        span#respondedTag responded:
+                    div#answerEditDelete
+                        p(id='answerContent')= answer.answer
+                        if answer.userId === userId
+                            div.editDeleteContainer
+                                a(href=`/answers/${answer.id}/edit` id='editAnswer' class='editDelete') Edit
+                                a(class=('answer-delete-button editDelete deleteQuestion') href=`/answers/${answer.id}/delete` id='deleteAnswer') Delete
+                    button(type='button' class="viewCommentsButtons" id=`viewComments-${answer.id}`) View/Submit Comments
+                div(id=`comments-${answer.id}` class="hidden commentsSections")
+                    div#commentsContainer
+                        form(action='/comments' method='post' class='target comment-submit')
+>>>>>>> main
                             input(type='hidden' name='_csrf' value=csrfToken)
                             input(type='hidden' value=userId name='userId')
                             input(type='hidden' value=answer.id name='answerId')
                             input(type='hidden' value=question.id name='questionId')
+<<<<<<< HEAD
                             +field('', 'comment', null, null, 'Please submit comment...')
                             button(type="submit") Submit
                         button(type='button' class='toggleButton' id=`showComment-${answer.id}`) Show Comments
@@ -54,3 +89,22 @@ block content
                                                 div
                                                     a(href=`/comments/${comment.id}/edit`) Edit
                                                     a(class=('comment-delete-button') href=`/comments/${comment.id}/delete`) Delete
+=======
+                            +field('', 'comment', null, null, 'Leave a comment...')
+                            button(type="submit" id='submitAnswer') Submit
+                    if comments
+                        div#comments
+                            //- div#commentsLabel Comments:
+                            for comment in comments
+                                if comment.answerId === answer.id
+                                    for user in users
+                                        if user.id === comment.userId
+                                            div#welcome-username #{user.username}
+                                                span#respondedTag commented:
+                                            div#commentEditDelete
+                                                div(id="commentContent")= comment.comment
+                                                if comment.userId === userId
+                                                    div.editDeleteContainer
+                                                        a(href=`/comments/${comment.id}/edit` id='editComment' class='editDelete') Edit
+                                                        a(class='comment-delete-button editDelete deleteQuestion' href=`/comments/${comment.id}/delete` id='deleteComment') Delete
+>>>>>>> main

@@ -3,13 +3,21 @@ extends layout.pug
 include utils.pug
 
 block content
-    +validationErrorSummary(errors)
-    form(action='/user/login' method='post')
-        input(type='hidden' name='_csrf' value=csrfToken)
-        +field('Username', 'username', username)
-        +field('Password', 'password', null, 'password')
-        div(class='py-4')
-            button(type='submit' class='btn btn-primary') Log In 
-            a(href='/' class='btn btn-warning ml-2') Cancel
-    div
-        p: a(href='/user/register') Don't have an account?
+    div(id='formBox')
+        div(class='loginForm')
+            a(href='/')
+                    img(src='/images/PetWorks_puppy.png' id='puppy-pic-login' class='puppy-pic-logo')
+            img(src='/images/PetWorksLogo.png' id='petWorks')
+            +validationErrorSummary(errors)
+            form(action='/user/login' method='post')
+                input(type='hidden' name='_csrf' value=csrfToken)
+                div(class='loginNRegForm-Container')
+                    div(class='formInputParent')
+                        div(id='loginPg-username' class='login-txt') Username
+                        +field('', 'username', username)
+                        div(id='loginPg-password' class='login-txt') Password
+                        +field('', 'password', null, 'password')
+                    div(class='btnsLoginPg')
+                        button(type='submit' class='btn btn-primary regSubmitBtn' id='loginPg-button') Log In 
+                        a(href='/' class='btn btn-warning ml-2 cancelBtn' id='login-cancel-btn') Cancel
+                        p: a(href='/user/register') Don't have an account?

@@ -31,11 +31,14 @@ window.addEventListener("load", (event) => {
                     let HTML = ""
 
                     arr.forEach((question) => {
-                        HTML += `<div class='question'><a href=/questions/${question.id}>${question.question}</a></div>`;
+                        let currHTML = `<a class="questionText" href="/questions/${question.id}">${question.question}</a>`;
 
                         if (question.userId === userId) {
-                            HTML += `<div><a href="/questions/${question.id}/edit">Edit </a><a class="delete-button" id="question-delete-${question.id}" href="">Delete</a></div>`;
+                            currHTML += `<div class="editDeleteContainer"><a class="editDelete" href="/questions/${question.id}/edit" id="editQuestion">Edit</a><a class="delete-button deleteQuestion editDelete" id="question-delete-${question.id}" href="">Delete</a></div>`
                         }
+
+                        HTML += (`<div class="question">` + currHTML + `</div>`)
+
                     })
                     return HTML;
                 }
@@ -45,4 +48,41 @@ window.addEventListener("load", (event) => {
             });
         });
     }
+<<<<<<< HEAD
 });
+=======
+
+    // toggle comments
+
+
+    const viewCommentsButtons = document.querySelectorAll(".viewCommentsButtons");
+    const commentsSections = document.querySelectorAll(".commentsSections")
+
+    viewCommentsButtons.forEach(button => {
+        button.addEventListener('click', e => {
+            commentsSections.forEach(commentSection => {
+                if (e.target.id.split("-")[1] === commentSection.id.split("-")[1]) {
+                    if (commentSection.classList.contains("hidden")) {
+                        commentSection.classList.remove("hidden")
+                    } else {
+                        commentSection.classList.add("hidden")
+                    }
+                }
+            })
+        })
+    });
+
+    // hold selected petType button
+
+    const petTypeButtons = document.querySelectorAll(".filter-btn");
+
+    petTypeButtons.forEach((button) => {
+        button.addEventListener('click', e => {
+            // console.log("You are here");
+            petTypeButtons.forEach(button => button.classList.remove("selected"))
+
+            e.target.classList.add("selected");
+        })
+    })
+});
+>>>>>>> main

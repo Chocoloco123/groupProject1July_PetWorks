@@ -5,13 +5,13 @@ include utils.pug
 block content
     div(id='addAnswer-form')
         +validationErrorSummary(errors)
-        div Add an answer
-        div Answer:
+        div(class='addNEditHeaders')
+            div(id='addAnAnswer') Add an answer:
         form(action='/answers' method='post')
             input(type='hidden' value=questionId name='questionId')
             input(type='hidden' name='_csrf' value=csrfToken)
-            +field('Answer', 'answer', null, 'textarea')
+            +field('', 'answer', null, 'textarea')
 
-            div
-                button(type='submit') Submit
-                a(href='/') Cancel
+            div(id='answerButtons')
+                button(type='submit' id='submitAnswer') Submit
+                a(href='/' id='cancelAnswer') Cancel
