@@ -4,11 +4,12 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #0060ba;
 }
 
 * {
   box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6, a, ol, li, ul, div, span,
@@ -26,31 +27,550 @@ h1 {
   font-size: 2rem;
 }
 
+select{
+  border-radius: 5px;
+  margin: 5px 10px 5px 10px;
+}
+
+/* button:hover{
+  box-shadow: 0px 0px 2px 2px lightgrey;
+} */
+
+a:hover{
+  /* color: rgb(97, 177, 252); */
+  /* color: #44afe8; */
+  color: #38B6FF;
+}
+
+.hideComments {
+  visibility: hidden;
+}
+
+
+#body-background{
+  background-color: rgb(245, 245, 245);
+}
+
+/* -------------------nav bar ----------------------------------- */
 #nav-bar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 1px 5px rgb(208, 208, 208);
+  padding: 0px 20px;
 }
+
+/* .navChild {
+  width: 33%;
+} */
 
 #home-logout {
   display: flex;
   justify-content: space-between;
 }
 
-#petFilter {
-  display: flex;
-  justify-content: space-between;
+#puppy-pic{
+  height: 75px;
+  width: 75px;
+  margin: 8px 0px;
 }
 
+#petWorks{
+  height: 55px;
+  width: 110px;
+  margin-left: 0px;
+  margin-bottom: 14px;
+}
+
+#addQuestionButton{
+  position: fixed;
+  top: 1.8vh;
+  left: 43.25vw;
+  width: 210px;
+  height: 50px;
+  font-size: 24px;
+  border-radius: 5px;
+  margin: 5px;
+  background-color:#38B6FF;
+  color: white;
+  justify-self: center;
+}
+
+#addQuestionButton:hover{
+  width: 218px;
+  height: 52px;
+  font-size: 26px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.navButton {
+  font-size: 16px;
+  background: white;
+  border: none;
+}
+
+.navButton:hover {
+  text-decoration: underline;
+}
+
+#registerButton {
+  margin-left: 10px;
+}
+
+#logoutButton {
+  margin-left: 10px;
+}
+
+#homeButton {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+#homeButton:hover {
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 220, 80, 0.9);
+}
+
+#home-logout{
+  display: flex;
+  align-items: center;
+}
+
+/* #homeButton, #logoutButton, #loginButton, #registerButton{
+  font-family: "Gill Sans", sans-serif;
+  height: 30px;
+  width: 90px;
+  font-size: 20px;
+  border-radius: 20px;
+  margin: 3px;
+  background-color:#38B6FF;
+  color: white;
+} */
+
+/* #guestButton{
+  font-family: "Gill Sans", sans-serif;
+  height: 30px;
+  width: 160px;
+  font-size: 20px;
+  border-radius: 20px;
+  margin: 3px;
+  background-color: #38B6FF;
+  color: white;
+} */
+
+
+/* ----------- filter bar --------------------------------------- */
 #welcome-petFilter {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin: 0px 35px;
 }
 
+#welcome{
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.675)
+  /* margin: 18px 0px 12px 30px; */
+}
+
+#category-title {
+  font-size: 34px;
+  border: solid 1px black;
+  border-radius: 2px;
+  padding: 0px 10px;
+}
+
+#welcome-username {
+  font-size: 20px;
+  font-weight: 400;
+  /* color: #44aee8; */
+  color: #44afe8;
+}
+
+#petFilter{
+  display: flex;
+  margin: 0px 0px;
+}
+
+.filter-btn{
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 0px;
+  box-sizing: border-box;
+  width: 110px;
+  margin: 18px 0px;
+  padding: 7px;
+  background: rgb(255, 220, 80);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.675)
+}
+
+.filter-btn:hover {
+  background-color:#5abdff;
+  color: white;
+}
+
+
+/* ------------categories bar ----------------------------------- */
 #categories-bar {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgba(0, 0, 0, 9.0);
+  padding: 5px;
+  width: 160px;
+  max-height: 250px;
+}
+
+/* #filterBy{
+  font-size: 100px;
+  margin-bottom: 8px;
+} */
+
+.category{
+  text-decoration: none;
+  font-size: 22px;
+  color: rgba(0, 0, 0, 9.0);
+  padding-bottom: 12px;
+}
+
+.category:hover {
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* ---------------- questions feed ----------------------------------- */
+#categories-questionFeed {
+  display: flex;
+  margin: 4px 35px 0px 35px;
+}
+
+ #questionFeed{
+   display: flex;
+   justify-content: center;
+   width: 100%;
+   height: 100%;
+   margin-left: 20px;
+   align-items: center;
+   flex-direction: column;
+ }
+
+ .question{
+   border: 1px solid rgba(208, 208, 208, 0.35);
+   box-shadow: 0px 0px 1px 1px rgb(208, 208, 208);
+   display: flex;
+   justify-content: space-between;
+   border-radius: 5px;
+   width: 100%;
+   margin-bottom: 18px;
+   padding: 9px 18px;
+   background-color: white;
+ }
+
+ .question:hover{
+  background-color: rgb(235, 235, 235);
+ }
+
+ .questionText{
+   text-decoration: none;
+   font-size: 22px;
+ }
+
+ .editDeleteContainer {
+   display: flex;
+   align-items: center;
+ }
+
+ .editDelete {
+  margin: 0px 10px;
+  color: rgba(0, 0, 0, 0.675);
+  text-decoration: none;
+ }
+
+ .deleteQuestion:hover {
+  color: rgb(255, 65, 65);
+  text-decoration: underline;
+ }
+
+
+ /* ------------- question page --------------------------------------------- */
+
+.question-pageContainer{
+  /* border: 1px solid rgba(208, 208, 208, 0.35); */
+  box-shadow: 0px 0px 1px 1px rgb(208, 208, 208);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  /* margin-bottom: 50px; */
+  padding: 20px 35px;
+  background-color: white;
+}
+
+#questionContent {
+  font-size: 34px;
+  /* position: fixed; */
+}
+
+#question-qpageEditDelete {
+  padding-top: 16px;
+}
+
+.answerButton-container{
+  /* border: 1px solid rgba(208, 208, 208, 0.35);
+  box-shadow: 0px 0px 1px 1px rgb(208, 208, 208); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 20px 35px;
+  background-color: rgb(255, 255, 255);
+}
+
+#addAnswerButton {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+#addAnswerButton:hover {
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 220, 80, 0.9);
+}
+
+.answers-container {
+  width: 100%;
+  /* margin-bottom: 50px; */
+  padding: 10px 35px;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid black;
+}
+
+#answerEditDelete {
+  display: flex;
+  justify-content: space-between;
+}
+
+#answerContent {
+  font-size: 20px;
+  margin-left: 35px;
+}
+
+#viewCommentsButton {
+  background-color:rgb(245, 245, 245);
+  border-radius: 2px;
+  border: solid 1px black;
+  color: black;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+#viewCommentsButton:hover {
+  background-color: white;
+}
+
+#commentsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+}
+
+.comment-submit {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+}
+
+#submitAnswer {
+  background-color:#5abdff;
+  border-radius: 2px;
+  border: solid 1px black;
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  margin: 0px 10px;
+}
+
+#submitAnswer:hover {
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(255, 220, 80, 0.9);
+}
+
+.commentField {
+  font-size: 16px;
+  width: 225px;
+  height: 25px;
+}
+
+.commentField:focus {
+  outline: none;
+}
+
+#comments {
+  padding: 10px 35px;
+  background: white;
+  width: 100%;
+}
+
+#commentEditDelete {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2px;
+  padding-bottom: 35px;
+}
+
+#commentContent {
+  font-size: 18px;
+  margin-left: 35px;
+}
+
+#answersLabel {
+  margin-left: 35px;
+}
+
+#respondedTag {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-left: 5px;
+}
+
+
+
+ /* .question{
+   border: 1px solid rgba(208, 208, 208, 0.35);
+   box-shadow: 0px 0px 1px 1px rgb(208, 208, 208);
+   display: flex;
+   justify-content: space-between;
+   border-radius: 5px;
+   width: 100%;
+   margin-bottom: 18px;
+   padding: 9px 18px;
+   background-color: white;
+ }
+
+#questionUsername{
+  margin: 20px 30px 0px;
+  font-size: 17px;
+}
+
+#questionContent{
+  font-weight: 600;
+  font-size: 25px;
+  border-bottom: 2px solid lightgrey;
+  margin: 10px;
+}
+
+#addAnswerButton{
+  width: 100px;
+  height: 25px;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 15px;
+  border-radius: 15px;
+  margin: 5px;
+  background-color: #38B6FF;
+  color: white;
+}
+
+#questionOptions{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#answerContent{
+  font-size: 20px;
+  border-bottom: 2px solid lightgrey;
+  margin: 10px;
+}
+
+#answerOptions{
+  display:flex;
+  align-items: center;
+}
+
+#comment{
+ resize: none;
+ font-size: 15px;
+ width: 95%;
+ margin: 5px 10px 15px 10px;
+}
+
+#toggle{
+  margin: 10px;
+} */
+
+/* .target{
+  display:none;
+} */
+
+
+/* -------edit, add question / edit, add answer / edit comment forms ---------- */
+#addQuestion-form, #editQuestion-form, #editComment-form{
+  /* display: flex; */
+  background-color: white;
+  height: 375px;
+  margin: 40px 100px 100px;
+  box-shadow: 0px 0px 5px 2px lightgrey;
+}
+
+#addAnswer-form{
+  background-color: white;
+  height: 300px;
+  margin: 40px 100px 100px;
+  box-shadow: 0px 0px 5px 2px lightgrey;
+}
+
+#askAQuestion, #editAQuestion, #addAnAnswer, #editAComment{
+  font-weight: 700px;
+  font-size: 20px;
+  padding: 10px 0px;
+  margin: 50px 20px 0px 20px;
+}
+
+#question, #answer{
+ resize: none;
+ font-size: 18px;
+ width: 95%;
+ height: 180px;
+ border: none;
+ margin: 5px 10px 5px 10px;
+ border-bottom: 1px solid lightgrey;
+ border-top: 1px solid lightgrey;
+ outline: none;
+}
+
+#userAsked, #answerText, #commentText{
+  font-size: 16px;
+  margin: 5px 10px 5px;
+}
+
+#chooseQuestions{
   display: flex;
   flex-direction: column;
 }
 
-#categories-questionFeed {
-  display: flex;
+#chooseCategory, #choosePetType{
+  margin: 0px 10px 5px;
 }
+
+#questionButtons, #answerButtons{
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  margin-right: 5px;
+}
+
+/* #submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{
+  margin: 0px 10px 0px;
+  text-decoration: none;
+} */
