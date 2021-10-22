@@ -5,10 +5,10 @@ include utils.pug
 block content
     div(id='addQuestion-form')
         +validationErrorSummary(errors)
-        div(id='askAQuestion') Ask a Question:
+        div(id='askAQuestion' class='addNEditHeaders') Ask a Question:
         form(action='/questions/new' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            label(for='question' id='userAsked') #{user.username} asked:
+            label(for='question' id='userAsked' class='addNEditHeaders') 
                 +field(``, 'question', null, 'textarea')
             div(id='chooseQuestions')
                 label(for='category' id='chooseCategory') Choose Category:
@@ -26,5 +26,5 @@ block content
                         option(value='other') Other
 
             div(id='questionButtons')
-                button(type='submit' id='submitQuestion') Submit
+                button(type='submit' id='submitQuestion' class='regSubmitBtn') Submit
                 a(href='/' id='cancelQuestion') Cancel

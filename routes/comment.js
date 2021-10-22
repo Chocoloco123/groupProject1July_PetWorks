@@ -6,6 +6,12 @@ const db = require('../db/models');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 
+// const validators = [
+//   check('comment')
+//     .exists({checkFalsy: true})
+//     .withMessage('Please enter comment.')
+// ]
+
 router.post('/', csrfProtection, requireAuth, asyncHandler(async (req, res) => {
   const { comment, userId, answerId, questionId } = req.body;
 
