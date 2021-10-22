@@ -98,8 +98,6 @@ a:hover{
 }
 
 #addQuestionButton:hover{
-  width: 218px;
-  height: 52px;
   font-size: 26px;
   color: rgba(0, 0, 0, 0.75);
 }
@@ -224,6 +222,7 @@ a:hover{
 #categories-bar {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border-bottom: 2px solid rgba(0, 0, 0, 9.0);
   padding: 5px;
   width: 160px;
@@ -243,7 +242,6 @@ a:hover{
 }
 
 .category:hover {
-  font-size: 24px;
   background-color: rgba(0, 0, 0, 0.05);
 }
 
