@@ -10,7 +10,9 @@ block content
     include navigation-bar.pug
     div(id='welcome-petFilter')
         if locals.authenticated
-            div(id='welcome') Welcome #{username}
+            div(id='welcome') Welcome 
+                span#welcome-username #{username}
+                span#welcome !
         else
             div(id='welcome') Welcome!
         include petType.pug
