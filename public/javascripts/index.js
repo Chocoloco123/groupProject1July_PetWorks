@@ -48,4 +48,38 @@ window.addEventListener("load", (event) => {
             });
         });
     }
+
+    // toggle comments
+
+
+    // const viewCommentsButton = document.querySelectorAll(".viewCommentsButton");
+    // console.log(viewCommentsButtons)
+    // console.log(commentsContainer)
+
+    // viewCommentsButton.forEach((button) => {
+    //     button.addEventListener('click', e => {
+            // e.preventDefault();
+    //         const commentsContainer = document.getElementById('hidden');
+
+    //         if (commentsContainer.classList.contains("hidden")) {
+    //             commentsContainer.classList.remove("hidden");
+    //         } else {
+    //             commentsContainer.classList.add("hidden");
+    //         }
+
+    //     })
+    // })
+
+    // hold selected petType button
+
+    const petTypeButtons = document.querySelectorAll(".filter-btn");
+
+    petTypeButtons.forEach((button) => {
+        button.addEventListener('click', e => {
+            // console.log("You are here");
+            petTypeButtons.forEach(button => button.classList.remove("selected"))
+
+            e.target.classList.add("selected");
+        })
+    })
 });
