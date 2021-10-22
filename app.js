@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const { sessionSecret } = require('./config');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
@@ -13,6 +14,7 @@ const questionRouter = require('./routes/question');
 const answerRouter = require('./routes/answer');
 const commentRouter = require('./routes/comment');
 const categoryRouter = require('./routes/category');
+const searchRouter = require('./routes/search');
 const app = express();
 
 // view engine setup
@@ -21,7 +23,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser('superSecret'));
+app.use(cookieParser(sessionSecret));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set up session middleware
@@ -29,7 +31,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: 'superSecret',
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
@@ -45,6 +47,7 @@ app.use('/questions', questionRouter);
 app.use('/answers', answerRouter);
 app.use('/comments', commentRouter);
 app.use('/categories', categoryRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
