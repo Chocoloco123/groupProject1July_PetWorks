@@ -31,11 +31,14 @@ window.addEventListener("load", (event) => {
                     let HTML = ""
 
                     arr.forEach((question) => {
-                        HTML += `<div class='question'><a href=/questions/${question.id}>${question.question}</a></div>`;
+                        let currHTML = `<a class="questionText" href="/questions/${question.id}">${question.question}</a>`;
 
                         if (question.userId === userId) {
-                            HTML += `<div><a href="/questions/${question.id}/edit">Edit </a><a class="delete-button" id="question-delete-${question.id}" href="">Delete</a></div>`;
+                            currHTML += `<div class="editDeleteContainer"><a class="editDelete" href="/questions/${question.id}/edit" id="editQuestion">Edit</a><a class="delete-button deleteQuestion editDelete" id="question-delete-${question.id}" href="">Delete</a></div>`
                         }
+
+                        HTML += (`<div class="question">` + currHTML + `</div>`)
+
                     })
                     return HTML;
                 }

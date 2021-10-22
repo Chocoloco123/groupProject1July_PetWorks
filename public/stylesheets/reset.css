@@ -84,7 +84,7 @@ a:hover{
 }
 
 #addQuestionButton{
-  position: fixed;
+  position: absolute;
   top: 1.8vh;
   left: 43.25vw;
   width: 210px;
