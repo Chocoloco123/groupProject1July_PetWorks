@@ -568,7 +568,7 @@ a:hover{
 }
 
 #chooseCategory, #choosePetType{
-  margin: 0px 10px 5px;
+  margin: 0px 10px 5px 30px;
 }
 
 #questionButtons, #answerButtons{
@@ -578,7 +578,7 @@ a:hover{
   margin-right: 5px;
 }
 
-/* #submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{
+#submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{
   margin: 0px 10px 0px;
   text-decoration: none;
-} */
+}
