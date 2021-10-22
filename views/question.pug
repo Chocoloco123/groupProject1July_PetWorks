@@ -38,8 +38,8 @@ block content
                             div.editDeleteContainer
                                 a(href=`/answers/${answer.id}/edit` id='editAnswer' class='editDelete') Edit
                                 a(class=('answer-delete-button editDelete deleteQuestion') href=`/answers/${answer.id}/delete` id='deleteAnswer') Delete
-                    button(type='button' class="viewCommentsButton" id="viewCommentsButton") View Comments
-                div#hidden(class="hidden")
+                    button(type='button' class="viewCommentsButtons" id=`viewComments-${answer.id}`) View/Submit Comments
+                div(id=`comments-${answer.id}` class="hidden commentsSections")
                     div#commentsContainer
                         form(action='/comments' method='post' class='target comment-submit')
                             input(type='hidden' name='_csrf' value=csrfToken)

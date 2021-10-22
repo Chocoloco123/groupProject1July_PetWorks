@@ -52,23 +52,22 @@ window.addEventListener("load", (event) => {
     // toggle comments
 
 
-    // const viewCommentsButton = document.querySelectorAll(".viewCommentsButton");
-    // console.log(viewCommentsButtons)
-    // console.log(commentsContainer)
+    const viewCommentsButtons = document.querySelectorAll(".viewCommentsButtons");
+    const commentsSections = document.querySelectorAll(".commentsSections")
 
-    // viewCommentsButton.forEach((button) => {
-    //     button.addEventListener('click', e => {
-            // e.preventDefault();
-    //         const commentsContainer = document.getElementById('hidden');
-
-    //         if (commentsContainer.classList.contains("hidden")) {
-    //             commentsContainer.classList.remove("hidden");
-    //         } else {
-    //             commentsContainer.classList.add("hidden");
-    //         }
-
-    //     })
-    // })
+    viewCommentsButtons.forEach(button => {
+        button.addEventListener('click', e => {
+            commentsSections.forEach(commentSection => {
+                if (e.target.id.split("-")[1] === commentSection.id.split("-")[1]) {
+                    if (commentSection.classList.contains("hidden")) {
+                        commentSection.classList.remove("hidden")
+                    } else {
+                        commentSection.classList.add("hidden")
+                    }
+                }
+            })
+        })
+    });
 
     // hold selected petType button
 
