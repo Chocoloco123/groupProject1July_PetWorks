@@ -37,16 +37,22 @@ window.addEventListener('load', (event) => {
       e.preventDefault();
       let data;
 <<<<<<< HEAD
+<<<<<<< HEAD
       let feed = document.getElementById('questionFeed');
       // console.log(feed);
       // console.log(e.target.id);
 =======
+=======
+>>>>>>> 0a454c288a51b2ff8554e2cfa1e85c0c704e0fe1
       const category = document.getElementById("queryCategory")
 
       console.log(category.value)
 
       let feed = document.getElementById('questionFeed')
+<<<<<<< HEAD
 >>>>>>> main
+=======
+>>>>>>> 0a454c288a51b2ff8554e2cfa1e85c0c704e0fe1
 
       const result = await fetch(`/search/${e.target.id}`, {
         method: "POST",
