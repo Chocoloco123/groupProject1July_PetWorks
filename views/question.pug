@@ -38,27 +38,28 @@ block content
                             div.editDeleteContainer
                                 a(href=`/answers/${answer.id}/edit` id='editAnswer' class='editDelete') Edit
                                 a(class=('answer-delete-button editDelete deleteQuestion') href=`/answers/${answer.id}/delete` id='deleteAnswer') Delete
-                    button(type='button' id="viewCommentsButton") View Comments
-                div#commentsContainer
-                    form(action='/comments' method='post' class='target comment-submit')
-                        input(type='hidden' name='_csrf' value=csrfToken)
-                        input(type='hidden' value=userId name='userId')
-                        input(type='hidden' value=answer.id name='answerId')
-                        input(type='hidden' value=question.id name='questionId')
-                        +field('', 'comment', null, null, 'Leave a comment...')
-                        button(type="submit" id='submitAnswer') Submit
-                if comments
-                    div#comments
-                        //- div#commentsLabel Comments:
-                        for comment in comments
-                            if comment.answerId === answer.id
-                                for user in users
-                                    if user.id === comment.userId
-                                        div#welcome-username #{user.username}
-                                            span#respondedTag commented:
-                                        div#commentEditDelete
-                                            div(id="commentContent")= comment.comment
-                                            if comment.userId === userId
-                                                div.editDeleteContainer
-                                                    a(href=`/comments/${comment.id}/edit` id='editComment' class='editDelete') Edit
-                                                    a(class='comment-delete-button editDelete deleteQuestion' href=`/comments/${comment.id}/delete` id='deleteComment') Delete
+                    button(type='button' class="viewCommentsButtons" id=`viewComments-${answer.id}`) View/Submit Comments
+                div(id=`comments-${answer.id}` class="hidden commentsSections")
+                    div#commentsContainer
+                        form(action='/comments' method='post' class='target comment-submit')
+                            input(type='hidden' name='_csrf' value=csrfToken)
+                            input(type='hidden' value=userId name='userId')
+                            input(type='hidden' value=answer.id name='answerId')
+                            input(type='hidden' value=question.id name='questionId')
+                            +field('', 'comment', null, null, 'Leave a comment...')
+                            button(type="submit" id='submitAnswer') Submit
+                    if comments
+                        div#comments
+                            //- div#commentsLabel Comments:
+                            for comment in comments
+                                if comment.answerId === answer.id
+                                    for user in users
+                                        if user.id === comment.userId
+                                            div#welcome-username #{user.username}
+                                                span#respondedTag commented:
+                                            div#commentEditDelete
+                                                div(id="commentContent")= comment.comment
+                                                if comment.userId === userId
+                                                    div.editDeleteContainer
+                                                        a(href=`/comments/${comment.id}/edit` id='editComment' class='editDelete') Edit
+                                                        a(class='comment-delete-button editDelete deleteQuestion' href=`/comments/${comment.id}/delete` id='deleteComment') Delete

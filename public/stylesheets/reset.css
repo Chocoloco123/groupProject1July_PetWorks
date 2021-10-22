@@ -84,7 +84,7 @@ a:hover{
 }
 
 #addQuestionButton{
-  position: fixed;
+  position: absolute;
   top: 1.8vh;
   left: 43.25vw;
   width: 210px;
@@ -214,6 +214,11 @@ a:hover{
   color: white;
 }
 
+.selected {
+  background-color:#5abdff;
+  color: white;
+}
+
 
 /* ------------categories bar ----------------------------------- */
 #categories-bar {
@@ -297,6 +302,11 @@ a:hover{
 
 
  /* ------------- question page --------------------------------------------- */
+
+ .hidden {
+   display: none;
+ }
+
 
 .question-pageContainer{
   /* border: 1px solid rgba(208, 208, 208, 0.35); */
