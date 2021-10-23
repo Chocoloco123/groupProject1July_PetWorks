@@ -8,8 +8,7 @@ block content
         div(id='askAQuestion' class='addNEditHeaders') Ask a Question:
         form(action='/questions/new' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
-            label(for='question' id='userAsked' class='addNEditHeaders') 
-                +field(``, 'question', null, 'textarea')
+            +field(``, 'question', null, 'textarea')
             div(id='chooseQuestions')
                 label(for='category' id='chooseCategory') Choose Category:
                     select(name='category')

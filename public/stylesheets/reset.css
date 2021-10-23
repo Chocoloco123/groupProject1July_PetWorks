@@ -529,36 +529,38 @@ a:hover{
 
 
 /* -------edit, add question / edit, add answer / edit comment forms ---------- */
-#addQuestion-form, #editQuestion-form, #editComment-form{
+#addQuestion-form, #editQuestion-form, #addAnswer-form, #editComment-form{
   /* display: flex; */
   background-color: white;
   overflow-y: hidden;
-  margin: 40px 100px 100px;
+  width: 700px;
+  margin: 100px auto;
   box-shadow: 0px 0px 5px 2px lightgrey;
   padding: 15px;
 }
 
-#addAnswer-form{
+/* #addAnswer-form{
   background-color: white;
   overflow-y: hidden;
   margin: 40px 100px 100px;
   box-shadow: 0px 0px 5px 2px lightgrey;
-}
+} */
 
 #askAQuestion, #editAQuestion, #addAnAnswer, #editAComment, #editAnAnswer {
   font-weight: 700px;
   font-size: 20px;
-  padding: 3px 0px;
+  /* padding: 5px 0px; */
+  margin: 20px 10px;
   /* margin: 50px 20px 0px 20px; */
 }
 
-#question, #answer {
+#question, #answer, #comment {
  resize: none;
  font-size: 18px;
  width: 97%;
  height: 180px;
  border: none;
- margin: 5px 10px 5px 10px;
+ margin: 10px;
  border-bottom: 1px solid lightgrey;
  border-top: 1px solid lightgrey;
  outline: none;
@@ -572,10 +574,12 @@ a:hover{
 #chooseQuestions{
   display: flex;
   flex-direction: column;
+  margin-top: 25px;
 }
 
 #chooseCategory, #choosePetType{
-  margin: 0px 10px 5px;
+  /* margin: 0px 10px 5px; */
+  margin: 5px 10px;
 }
 
 #questionButtons, #answerButtons{
@@ -584,7 +588,7 @@ a:hover{
   align-items: flex-end;
   margin-top: 5px;
   margin-right: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 #submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{
