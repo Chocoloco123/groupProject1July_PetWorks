@@ -61,7 +61,6 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         userId,
         comments
     })
-
 }));
 
 router.get('/:id/edit', csrfProtection, asyncHandler(async (req, res) => {

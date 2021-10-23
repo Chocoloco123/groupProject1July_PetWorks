@@ -9,11 +9,12 @@ const { csrfProtection, asyncHandler } = require('./utils');
 router.post('/', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
     const {questionId, likeNum} = req.body;
     const {userId} = req.session.auth;
-    
+
+    const question = await db.Question.findByPk(questionId)
+
     const newLike = await db.Like.create({
-        userId: parseInt(userId), 
-        questionId: parseInt(questionId), 
-        likeNum: parseInt(likeNum)
+        userId: parseInt(userId),
+        questionId: parseInt(questionId)
     })
 
     res.redirect('/');
