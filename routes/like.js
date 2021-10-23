@@ -13,7 +13,6 @@ router.post('/', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
     const newLike = await db.Like.create({
         userId: parseInt(userId), 
         questionId: parseInt(questionId), 
-        likeNum: parseInt(likeNum)
     })
 
     res.redirect('/');
