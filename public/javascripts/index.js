@@ -1,5 +1,17 @@
 window.addEventListener("load", (event) => {
-    console.log("hello from javascript!")
+    // const likeToggle = document.querySelector('.likeBtn');
+
+    // likeToggle.addEventListener('click', (e) => {
+    //     e.preventDefault();
+
+    //     if (likeToggle.getAttribute('class') === 'liked') {
+    //         likeToggle.setAttribute('class', 'unliked');
+    //     } else {
+    //         likeToggle.setAttribute('class', 'liked');
+    //     }
+    // })
+
+    // console.log("hello from javascript!")
 
     const deleteButtons = document.querySelectorAll(".delete-button");
 
@@ -106,6 +118,5 @@ window.addEventListener("load", (event) => {
             likeNumber.innerText = data.likeCount;
             // console.log(likeNumber, '<-------------')
         }
-        
     })
 });

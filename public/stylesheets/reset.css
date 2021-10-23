@@ -460,19 +460,17 @@ a:hover{
   margin-left: 5px;
 }
 
-/* like button */
 .likeBtn {
+  background-color: #FCD0DA;
   margin: 10px;
   /* background-color: #38B6FF; */
-  background-color: #FCD0DA;
   border-radius: 3px;
   color: black;
   padding: 5px;
 }
 
-/* like count */
-.likeCount {
-
+.likeBtn:hover {
+  background-color: rgb(255, 0, 0);
 }
 
 
