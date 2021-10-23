@@ -28,9 +28,23 @@ router.post('/new', csrfProtection, requireAuth, asyncHandler(async (req, res) =
 router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
     let questionId = req.params.id;
     let userId;
+    let likedBool;
 
     if (req.session.auth) {
         userId = req.session.auth.userId
+    }
+
+    const like = await db.Like.findOne({
+        where: {
+            questionId,
+            userId
+        }
+    })
+
+    if (like) {
+        likedBool = true;
+    } else {
+        likedBool = false;
     }
 
     const question = await db.Question.findByPk(questionId, {
@@ -65,7 +79,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         users,
         userId,
         comments,
-        likeCount
+        likeCount,
+        likedBool
     })
 
 }));

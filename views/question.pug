@@ -25,8 +25,12 @@ block content
                 input(type='hidden' value=question.id name='questionId')
                 input(type='hidden' name='_csrf' value=csrfToken)
                 button(type='submit' id='addAnswerButton' class='navButton') Add Answer
-            button(class="likeButton") Like Question
-            p(class="likeCount")= likeCount.length
+            if likedBool
+                button(class="likeButton liked") Unlike
+                p(class="likeCount")= likeCount.length
+            else 
+                button(class="likeButton") Like
+                p(class="likeCount")= likeCount.length
         
         if answers
             //- div#answersLabel Answers:

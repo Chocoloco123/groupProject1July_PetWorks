@@ -359,6 +359,10 @@ a:hover{
   background: rgba(255, 220, 80, 0.9);
 }
 
+.liked {
+  background-color: #ffc0d9;
+}
+
 .answers-container {
   width: 100%;
   /* margin-bottom: 50px; */

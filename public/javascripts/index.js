@@ -103,7 +103,14 @@ window.addEventListener("load", (event) => {
             const data = await res.json();
             const likeCount = document.querySelector('.likeCount');
             likeCount.innerText = data.likeCount;
-            // console.log(likeNumber, '<-------------')
+        }
+
+        if (e.target.classList.contains("liked")) {
+            e.target.classList.remove("liked")
+            e.target.innerText = "Like"
+        } else {
+            e.target.classList.add("liked")
+            e.target.innerText = "Unlike"
         }
     })
 });
