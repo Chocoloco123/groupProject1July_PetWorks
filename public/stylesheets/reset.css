@@ -193,6 +193,7 @@ a:hover{
   font-weight: 400;
   /* color: #44aee8; */
   color: #44afe8;
+  margin-right: 5px;
 }
 
 #petFilter{
@@ -227,6 +228,7 @@ a:hover{
 #categories-bar {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   border-bottom: 2px solid rgba(0, 0, 0, 9.0);
   /* padding: 5px; */
   width: 160px;
@@ -458,6 +460,18 @@ a:hover{
   margin-left: 5px;
 }
 
+.likeBtn {
+  background-color: #FCD0DA;
+  margin: 10px;
+  /* background-color: #38B6FF; */
+  border-radius: 3px;
+  color: black;
+  padding: 5px;
+}
+
+.likeBtn:hover {
+  background-color: rgb(255, 0, 0);
+}
 
 
  /* .question{
@@ -575,7 +589,7 @@ a:hover{
 }
 
 #chooseCategory, #choosePetType{
-  margin: 0px 10px 5px;
+  margin: 0px 10px 5px 30px;
 }
 
 #questionButtons, #answerButtons{
@@ -591,4 +605,3 @@ a:hover{
   margin: 0px 10px 0px;
   text-decoration: none;
 }
-

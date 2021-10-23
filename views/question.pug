@@ -13,7 +13,7 @@ block content
     div.questionPage
         div(class='question-pageContainer')
             div
-                span(id='welcome-username') #{question.User.username} 
+                span(id='welcome-username') #{question.User.username}
                 span#welcome asked:
             div(id='questionContent' class='questionText') #{question.question}
             if question.userId === userId
@@ -25,9 +25,10 @@ block content
                 input(type='hidden' value=question.id name='questionId')
                 input(type='hidden' name='_csrf' value=csrfToken)
                 button(type='submit' id='addAnswerButton' class='navButton') Add Answer
-        
+            button(class='likeBtn') Like
+            p(class='likeCount')= likeCount.length
+
         if answers
-            //- div#answersLabel Answers:
             for answer in answers
                 div(class='answers-container')
                     div#welcome-username #{answer.User.username}

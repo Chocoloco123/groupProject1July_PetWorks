@@ -51,7 +51,12 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
     })
 
     const users = await db.User.findAll();
-    console.log(users.length)
+    // console.log(users.length)
+    const likeCount = await db.Like.findAll({
+            where: {
+                questionId
+            }
+        });
 
     res.render('question', {
         question,
@@ -59,7 +64,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         answers,
         users,
         userId,
-        comments
+        comments,
+        likeCount
     })
 
 }));
@@ -129,7 +135,58 @@ router.get('/:id/pageDelete', asyncHandler(async (req, res) => {
 }));
 
 
-router.get('/')
+// router.get('/')
+
+// router.get('/:id/like', csrfProtection, asyncHandler(async(req, res) => {
+//     const questionId = req.params.id;
+
+
+//     // console.log(likeCount, '---------------------')
+//     res.render('question', {likeCount: likeCount, csrfToken: req.csrfToken()});
+// }))
+
+
+// likes route for each question
+router.post('/:id/like', requireAuth, asyncHandler(async(req, res)=> {
+    const questionId = req.params.id;
+    const {userId} = req.session.auth;
+
+    const like = await db.Like.findOne({
+            where: {
+                questionId,
+                userId
+            }
+        })
+
+    if (like) {
+        await like.destroy();
+
+        const question = await db.Like.findAll({
+            where: {
+                questionId
+            }
+        })
+
+        return res.status(200).json({likeCount: question.length})
+        // console.log(question, 'startttttttttttttttt', question.length);
+    } else {
+        const newLike = await db.Like.create({
+            userId, 
+            questionId
+        })  
+
+        const question = await db.Like.findAll({
+            where: {
+                questionId
+            }
+        })
+        
+        // console.log(question, 'endddddddddddddddd', question.length);
+        return res.status(200).json({likeCount: question.length})
+    }
+
+    res.end();
+}))
 
 
 

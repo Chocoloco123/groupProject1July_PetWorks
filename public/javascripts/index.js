@@ -1,5 +1,17 @@
 window.addEventListener("load", (event) => {
-    console.log("hello from javascript!")
+    // const likeToggle = document.querySelector('.likeBtn');
+
+    // likeToggle.addEventListener('click', (e) => {
+    //     e.preventDefault();
+
+    //     if (likeToggle.getAttribute('class') === 'liked') {
+    //         likeToggle.setAttribute('class', 'unliked');
+    //     } else {
+    //         likeToggle.setAttribute('class', 'liked');
+    //     }
+    // })
+
+    // console.log("hello from javascript!")
 
     const deleteButtons = document.querySelectorAll(".delete-button");
 
@@ -80,5 +92,31 @@ window.addEventListener("load", (event) => {
 
             e.target.classList.add("selected");
         })
+    })
+
+    // likes
+
+    const likeBtn = document.querySelector('.likeBtn');
+    console.log('helloooo', likeBtn);
+    likeBtn.addEventListener('click', async(e) => {
+        e.preventDefault();
+        // console.log('helloooooooooo')
+        const res = await fetch(`${window.location.pathname}/like`, {
+            method: "POST",
+            body: JSON.stringify({
+                id: parseInt(window.location.pathname.split("/")[2]) // questionId
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        
+        if (res.status === 200) {
+            const data = await res.json();
+
+            const likeNumber = document.querySelector('.likeCount');
+            likeNumber.innerText = data.likeCount;
+            // console.log(likeNumber, '<-------------')
+        }
     })
 });
