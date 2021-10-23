@@ -129,7 +129,21 @@ router.get('/:id/pageDelete', asyncHandler(async (req, res) => {
 }));
 
 
-router.get('/')
+// router.get('/')
+
+
+// likes route for each question
+router.post('/:id/like', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
+    const {questionId} = req.params.id;
+    const {userId} = req.session.auth;
+    
+    const newLike = await db.Like.create({
+        userId: parseInt(userId), 
+        questionId: parseInt(questionId), 
+    })
+
+    res.end();
+}))
 
 
 

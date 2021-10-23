@@ -1,8 +1,6 @@
 div(id='questionFeed')
     each question in questions
         div(class='question')
-            a(class='likeButton' href=`/like/${question.id}/like`) Like 
-                //- div(class='likeNum')= like.likeNum 
             a(href=`/questions/${question.id}` class='questionText')= question.question
             if question.userId === userId
                 div.editDeleteContainer

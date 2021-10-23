@@ -12,7 +12,7 @@ router.get('/test', asyncHandler(async(req, res) => {
 }))
 
 router.post('/:id/like', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
-    const {questionId} = req.body;
+    const {questionId} = req.params.id;
     const {userId} = req.session.auth;
     
     const newLike = await db.Like.create({
@@ -20,7 +20,7 @@ router.post('/:id/like', csrfProtection, requireAuth, asyncHandler(async(req, re
         questionId: parseInt(questionId), 
     })
 
-    res.redirect('/');
+    res.end();
 }))
 
 module.exports = router;

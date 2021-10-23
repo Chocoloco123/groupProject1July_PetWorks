@@ -81,4 +81,27 @@ window.addEventListener("load", (event) => {
             e.target.classList.add("selected");
         })
     })
+
+    // likes
+
+    const likeBtn = document.querySelector('.likeBtn');
+    console.log('helloooo', likeBtn);
+    likeBtn.addEventListener('click', async(e) => {
+        // e.preventDefault();
+        // console.log('helloooooooooo')
+        const res = await fetch(`${window.location.pathname}/like`, {
+            method: "POST",
+            body: JSON.stringify({
+                id: window.location.pathname.split("/")[1]
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (res.status === 200) {
+            data = await res.json();
+        }
+        // console.log(window.location.pathname)
+    })
 });
