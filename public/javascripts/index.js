@@ -101,9 +101,8 @@ window.addEventListener("load", (event) => {
 
         if (res.status === 200) {
             const data = await res.json();
-
-            // const likeNumber = document.querySelector('.likeCount');
-            // likeNumber.innerText = data.likeCount;
+            const likeCount = document.querySelector('.likeCount');
+            likeCount.innerText = data.likeCount;
             // console.log(likeNumber, '<-------------')
         }
     })
