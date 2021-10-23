@@ -102,7 +102,7 @@ window.addEventListener("load", (event) => {
         if (res.status === 200) {
             const data = await res.json();
             const likeCount = document.querySelector('.likeCount');
-            likeCount.innerText = data.likeCount;
+            likeCount.innerText = `${data.likeCount} like(s)`;
         }
 
         if (e.target.classList.contains("liked")) {
