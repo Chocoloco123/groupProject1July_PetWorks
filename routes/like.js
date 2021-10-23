@@ -7,14 +7,16 @@ const db = require('../db/models');
 const { csrfProtection, asyncHandler } = require('./utils');
 
 router.post('/', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
-    const {question} = req.body;
+    const {questionId, likeNum} = req.body;
     const {userId} = req.session.auth;
     
     const newLike = await db.Like.create({
-        userId, questionId
+        userId: parseInt(userId), 
+        questionId: parseInt(questionId), 
+        likeNum: parseInt(likeNum)
     })
 
-    res.render()
+    res.redirect('/');
 }))
 
 module.exports = router;

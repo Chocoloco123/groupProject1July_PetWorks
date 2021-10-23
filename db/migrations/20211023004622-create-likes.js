@@ -18,8 +18,8 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {model: 'Questions'}
       },
-      likeNum: {
-        type: Sequelize.INTEGER
+      liked: {
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
