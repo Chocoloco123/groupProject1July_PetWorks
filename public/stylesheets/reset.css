@@ -546,7 +546,7 @@ a:hover{
   box-shadow: 0px 0px 5px 2px lightgrey;
 } */
 
-#askAQuestion, #editAQuestion, #addAnAnswer, #editAComment, #editAnAnswer {
+#askAQuestion, #editAQuestion, #addAnAnswer, #editAnAnswer, #editAComment {
   font-weight: 700px;
   font-size: 20px;
   /* padding: 5px 0px; */
@@ -554,7 +554,7 @@ a:hover{
   /* margin: 50px 20px 0px 20px; */
 }
 
-#question, #answer, #comment {
+#question, #answer {
  resize: none;
  font-size: 18px;
  width: 97%;
@@ -582,13 +582,20 @@ a:hover{
   margin: 5px 10px;
 }
 
-#questionButtons, #answerButtons{
+#questionButtons {
   display: flex;
   justify-content: right;
   align-items: flex-end;
-  margin-top: 5px;
-  margin-right: 10px;
-  margin-bottom: 20px;
+  margin: 10px 0px;
+  /* margin-bottom: 20px; */
+}
+
+#answerButtons {
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  margin: 25px 0px;
+  /* margin-bottom: 20px; */
 }
 
 #submitQuestion, #cancelQuestion, #editAnswer, #deleteAnswer, #deleteQuestion, #submitAnswer, #cancelAnswer, #submitComment, #cancelComment{

@@ -5,7 +5,7 @@ include utils.pug
 block content
     div(id='addQuestion-form')
         +validationErrorSummary(errors)
-        div(id='askAQuestion' class='addNEditHeaders') Ask a Question:
+        div(id='askAQuestion') Ask Question:
         form(action='/questions/new' method='post')
             input(type='hidden' name='_csrf' value=csrfToken)
             +field(``, 'question', null, 'textarea')
