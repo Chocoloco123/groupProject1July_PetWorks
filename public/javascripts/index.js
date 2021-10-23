@@ -81,4 +81,30 @@ window.addEventListener("load", (event) => {
             e.target.classList.add("selected");
         })
     })
+
+    // likes
+
+    const likeButton = document.querySelector('.likeButton');
+    // console.log(likeButton);
+    likeButton.addEventListener('click', async (e) => {
+        e.preventDefault();
+        // console.log(window.location.pathname)
+        const res = await fetch(`${window.location.pathname}/like`, {
+            method: "POST",
+            body: JSON.stringify({
+                questionId: parseInt(window.location.pathname.split("/")[2])
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        if (res.status === 200) {
+            const data = await res.json();
+
+            // const likeNumber = document.querySelector('.likeCount');
+            // likeNumber.innerText = data.likeCount;
+            // console.log(likeNumber, '<-------------')
+        }
+    })
 });
