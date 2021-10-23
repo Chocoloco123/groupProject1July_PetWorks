@@ -9,7 +9,7 @@ module.exports = {
       Example:
       */
    return queryInterface.bulkInsert('Questions', [
-     {userId: 1, question: 'How do you get a cat down from a high shelf?', category: 'health', petType: 'cat', likeNum: 2, createdAt: '2019-04-14', updatedAt: '2019-04-14'},
+     {userId: 1, question: 'How do you get a cat down from a high shelf?', category: 'health', petType: 'cat', likeNum: 1, createdAt: '2019-04-14', updatedAt: '2019-04-14'},
      {userId: 1, question: 'What\'s the best brand of dog food?', category: 'nutrition', petType: 'dog', createdAt: '2018-11-30', updatedAt: '2019-01-22'},
      {userId: 2, question: 'What formula to feed kittens? 2 week old', category: 'nutrition', petType: 'cat', createdAt: '2017-01-13', updatedAt: '2017-01-14'},
      {userId: 2, question: 'Can I wash cat? how old cat to shower?', category: 'health', petType: 'cat', createdAt: '2020-11-05', updatedAt: '2020-11-05'},
