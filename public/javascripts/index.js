@@ -104,7 +104,7 @@ window.addEventListener("load", (event) => {
 
             const likeNumber = document.querySelector('.likeCount');
             likeNumber.innerText = data.likeCount;
-            console.log(likeNumber, '<-------------')
+            // console.log(likeNumber, '<-------------')
         }
         
     })

@@ -52,6 +52,11 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
 
     const users = await db.User.findAll();
     // console.log(users.length)
+    const likeCount = await db.Like.findAll({
+            where: {
+                questionId
+            }
+        });
 
     res.render('question', {
         question,
@@ -59,7 +64,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
         answers,
         users,
         userId,
-        comments
+        comments,
+        likeCount
     })
 
 }));
@@ -131,9 +137,17 @@ router.get('/:id/pageDelete', asyncHandler(async (req, res) => {
 
 // router.get('/')
 
+// router.get('/:id/like', csrfProtection, asyncHandler(async(req, res) => {
+//     const questionId = req.params.id;
+
+
+//     // console.log(likeCount, '---------------------')
+//     res.render('question', {likeCount: likeCount, csrfToken: req.csrfToken()});
+// }))
+
 
 // likes route for each question
-router.post('/:id/like', asyncHandler(async(req, res)=> {
+router.post('/:id/like', requireAuth, asyncHandler(async(req, res)=> {
     const questionId = req.params.id;
     const {userId} = req.session.auth;
 
