@@ -6,8 +6,13 @@ const db = require('../db/models');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 
-router.post('/', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
-    const {questionId, likeNum} = req.body;
+router.get('/test', asyncHandler(async(req, res) => {
+    res.render('hello world');
+    res.end();
+}))
+
+router.post('/:id/like', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
+    const {questionId} = req.body;
     const {userId} = req.session.auth;
     
     const newLike = await db.Like.create({

@@ -26,7 +26,7 @@ module.exports = {
         type: Sequelize.STRING(50)
       },
       likeNum: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER(0),
       },
       createdAt: {
         allowNull: false,
