@@ -35,14 +35,14 @@ router.get('/:id/edit', csrfProtection, asyncHandler(async (req, res) => {
 }));
 
 router.post('/:id/edit', csrfProtection, asyncHandler(async (req, res) => {
-  const { comment } = req.body
+  const { commentEdited } = req.body
   let commentId = req.params.id;
   const editComment = await db.Comment.findByPk(commentId, {
     include: [db.Answer]
   })
 
   editComment.update({
-    comment
+    comment: commentEdited
   });
 
   await editComment.save();

@@ -554,7 +554,7 @@ a:hover{
   /* margin: 50px 20px 0px 20px; */
 }
 
-#question, #answer {
+#question, #answer, #commentEdited {
  resize: none;
  font-size: 18px;
  width: 97%;

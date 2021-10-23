@@ -3,14 +3,14 @@ extends layout.pug
 include utils.pug
 
 block content
-    div(id='editComment-form' class='editAnswerFormContainer')
+    div(id='addAnswer-form')
         +validationErrorSummary(errors)
-        div(id='editCommentFormContainment')
-            //- div(id='commentText') Comment:
-            form(action=`/comments/${comment.id}/edit` method='post')
-                input(type='hidden' value=questionId name='questionId')
-                input(type='hidden' name='_csrf' value=csrfToken)
-                div(id='editAComment') Edit Comment:
-                +field('', 'comment', comment.comment, 'textarea')
-                button(type='submit' class='regSubmitBtn editCommentSubmitBtn') Submit
-                a(href='/' id='cancelComment' class='.cancelBtn') Cancel
+        div(id='editAComment') Edit Comment:
+        form(action=`/comments/${comment.id}/edit` method='post')
+            input(type='hidden' value=questionId name='questionId')
+            input(type='hidden' name='_csrf' value=csrfToken)
+            +field('', 'commentEdited', comment.comment, 'textarea')
+
+            div(id='answerButtons')
+                button(type='submit' id='submitQuestion' class='regSubmitBtn') Submit
+                a(href='/' id='cancelQuestion') Cancel
