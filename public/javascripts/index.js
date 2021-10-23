@@ -87,18 +87,18 @@ window.addEventListener("load", (event) => {
     const likeBtn = document.querySelector('.likeBtn');
     console.log('helloooo', likeBtn);
     likeBtn.addEventListener('click', async(e) => {
-        // e.preventDefault();
+        e.preventDefault();
         // console.log('helloooooooooo')
         const res = await fetch(`${window.location.pathname}/like`, {
             method: "POST",
             body: JSON.stringify({
-                id: window.location.pathname.split("/")[1]
+                id: parseInt(window.location.pathname.split("/")[2]) // questionId
             }),
             headers: {
                 "Content-Type": "application/json",
             },
         });
-
+        // console.log(typeof parseInt(window.location.pathname.split("/")[2]), '<-----------')
         if (res.status === 200) {
             data = await res.json();
         }

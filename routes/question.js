@@ -51,7 +51,7 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
     })
 
     const users = await db.User.findAll();
-    console.log(users.length)
+    // console.log(users.length)
 
     res.render('question', {
         question,
@@ -133,14 +133,43 @@ router.get('/:id/pageDelete', asyncHandler(async (req, res) => {
 
 
 // likes route for each question
-router.post('/:id/like', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
-    const {questionId} = req.params.id;
+router.post('/:id/like', asyncHandler(async(req, res)=> {
+    const questionId = req.params.id;
     const {userId} = req.session.auth;
-    
-    const newLike = await db.Like.create({
-        userId: parseInt(userId), 
-        questionId: parseInt(questionId), 
-    })
+
+    const like = await db.Like.findOne({
+            where: {
+                questionId,
+                userId
+            }
+        })
+
+    if (like) {
+        await like.destroy();
+
+        const question = await db.Like.findAll({
+            where: {
+                questionId
+            }
+        })
+
+        return res.status(200).json({likeCount: question.length})
+        // console.log(question, 'startttttttttttttttt', question.length);
+    } else {
+        const newLike = await db.Like.create({
+            userId, 
+            questionId
+        })  
+
+        const question = await db.Like.findAll({
+            where: {
+                questionId
+            }
+        })
+        
+        // console.log(question, 'endddddddddddddddd', question.length);
+        return res.status(200).json({likeCount: question.length})
+    }
 
     res.end();
 }))
