@@ -98,10 +98,14 @@ window.addEventListener("load", (event) => {
                 "Content-Type": "application/json",
             },
         });
-        // console.log(typeof parseInt(window.location.pathname.split("/")[2]), '<-----------')
+        
         if (res.status === 200) {
-            data = await res.json();
+            const data = await res.json();
+
+            const likeNumber = document.querySelector('.likeCount');
+            likeNumber.innerText = data.likeCount;
+            console.log(likeNumber, '<-------------')
         }
-        // console.log(window.location.pathname)
+        
     })
 });
