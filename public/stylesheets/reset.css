@@ -193,6 +193,7 @@ a:hover{
   font-weight: 400;
   /* color: #44aee8; */
   color: #44afe8;
+  margin-right: 5px;
 }
 
 #petFilter{
@@ -459,6 +460,20 @@ a:hover{
   margin-left: 5px;
 }
 
+/* like button */
+.likeBtn {
+  margin: 10px;
+  /* background-color: #38B6FF; */
+  background-color: #FCD0DA;
+  border-radius: 3px;
+  color: black;
+  padding: 5px;
+}
+
+/* like count */
+.likeCount {
+
+}
 
 
  /* .question{

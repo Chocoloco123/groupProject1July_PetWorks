@@ -6,10 +6,10 @@ const db = require('../db/models');
 
 const { csrfProtection, asyncHandler } = require('./utils');
 
-router.get('/test', asyncHandler(async(req, res) => {
-    res.render('hello world');
-    res.end();
-}))
+// router.get('/test', asyncHandler(async(req, res) => {
+//     res.render('hello world');
+//     res.end();
+// }))
 
 router.post('/:id/like', csrfProtection, requireAuth, asyncHandler(async(req, res)=> {
     const {questionId} = req.params.id;
