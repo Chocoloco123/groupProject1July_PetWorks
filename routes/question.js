@@ -32,6 +32,8 @@ router.get('/:id', csrfProtection, asyncHandler(async (req, res) => {
 
     if (req.session.auth) {
         userId = req.session.auth.userId
+    } else {
+        userId = null;
     }
 
     const like = await db.Like.findOne({
