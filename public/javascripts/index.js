@@ -97,7 +97,8 @@ window.addEventListener("load", (event) => {
     // likes
 
     const likeBtn = document.querySelector('.likeBtn');
-    console.log('helloooo', likeBtn);
+    // console.log('helloooo', likeBtn);
+    // listen for a click on the like button and get the questionId
     likeBtn.addEventListener('click', async(e) => {
         e.preventDefault();
         // console.log('helloooooooooo')
@@ -113,7 +114,7 @@ window.addEventListener("load", (event) => {
         
         if (res.status === 200) {
             const data = await res.json();
-
+            // Like count
             const likeNumber = document.querySelector('.likeCount');
             likeNumber.innerText = data.likeCount;
             // console.log(likeNumber, '<-------------')

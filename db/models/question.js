@@ -18,9 +18,9 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING(50),
     },
-    likeNum: {
-      type: DataTypes.INTEGER(0),  
-    },
+    // likeNum: {
+    //   type: DataTypes.INTEGER(0),  
+    // },
 
   }, {});
   Question.associate = function (models) {
