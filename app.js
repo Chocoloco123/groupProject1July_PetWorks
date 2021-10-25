@@ -49,7 +49,7 @@ app.use('/answers', answerRouter);
 app.use('/comments', commentRouter);
 app.use('/categories', categoryRouter);
 app.use('/search', searchRouter);
-app.use('/like', likeRouter);
+app.use('/likes', likeRouter);
 
 
 // catch 404 and forward to error handler

@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     petType: {
       allowNull: false,
-      type: DataTypes.STRING(50)
+      type: DataTypes.STRING(50),
     },
     likeNum: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER(0),  
     },
 
   }, {});
