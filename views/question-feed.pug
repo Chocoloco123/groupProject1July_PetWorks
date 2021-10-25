@@ -3,8 +3,9 @@ div(id='questionFeed')
         div(class='question')
             input(type='hidden' value=likeNum name='likeNum')
             input(type='hidden' value=question name='question')
-            button(class='likeButton') Like
-                div(class='likeNum')= question.likeNum
+            a(href='/'  id='likeQuestion')
+                button(class='likeButton' ) Like
+                    //- div(class='likeNum')= question.likeNum
             a(href=`/questions/${question.id}` class='questionText')= question.question
             if question.userId === userId
                 div.editDeleteContainer
